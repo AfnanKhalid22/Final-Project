@@ -3,7 +3,7 @@ eBook App
 
 
 # Project Description :
-eBook is a reading App helps a users to read books anywhere and any time easily .
+eBook is a reading App helps a users(adults & children) to read books anywhere and any time easily .
 
 ### Features List:
 // Add your project feature list
