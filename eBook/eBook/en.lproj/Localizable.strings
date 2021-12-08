@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  eBook
+
+  Created by Fno Khalid on 01/05/1443 AH.
+  
+*/
+
+// login Page:
+"email" = "Enter Your Email ... ";
+"passWord" = "Enter Your Password ...";
+"login" = "LogIn";
+"register" = "Register";
+
+// tab Bar:
+"home" = "Home";
+"child" = "Cildren";
+"favourite" = "Favourite";
+"profile" = "Profile";
+
+// label:
+"choose" = "Choose Your Language :";
+
+// buttons:
+"english" = "English";
+"arabic" = "Arabic";
+
+// Favourite page:
+"favPage" = "Favourite Books";
+
+// profile page:
+"Write" = "Write Your Name";
+"change" = "Change Language";
+"share" ="Share App";
+"signOut" = "Sign Out";
+
