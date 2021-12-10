@@ -12,7 +12,6 @@ struct User {
    var id: String
    var name: String
    var email: String
-//    static var status: String!
-//    static var profileImage: String!
+
 
 }

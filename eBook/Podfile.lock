@@ -495,6 +495,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PDFReader (2.5.1)
   - PromisesObjC (2.0.0)
+  - TransitionButton (0.5.3)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -503,6 +504,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - PDFReader
+  - TransitionButton
 
 SPEC REPOS:
   trunk:
@@ -527,6 +529,7 @@ SPEC REPOS:
     - nanopb
     - PDFReader
     - PromisesObjC
+    - TransitionButton
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -550,7 +553,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PDFReader: 2c4a845d0560f33221cf911516e3b700967680f6
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
+  TransitionButton: 36283346e17c64775a1b3bc3a7a72940a367de1f
 
-PODFILE CHECKSUM: bb773e22762715926fab67d904d59cd11e0c3c08
+PODFILE CHECKSUM: a5f5d852d1237ca679178397902e0b4322e4208c
 
 COCOAPODS: 1.11.2

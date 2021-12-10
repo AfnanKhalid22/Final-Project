@@ -45,7 +45,7 @@ class ArabicCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.layer.cornerRadius = 20
         button.layer.masksToBounds = true
-        button.setImage(UIImage(named: "bookMark"), for: .normal)
+        button.setImage(UIImage(named: "heart1"), for: .normal)
         button.addTarget(self, action: #selector(addfavoriteBook), for: .touchUpInside)
     
         return button
@@ -55,11 +55,11 @@ class ArabicCell: UICollectionViewCell {
         
         if isActive {
             isActive = false
-            favButton.setImage(UIImage(named: "bookMark"), for: .normal)
+            favButton.setImage(UIImage(named: "heart1"), for: .normal)
         } else {
 
                isActive = true
-                favButton.setImage(UIImage(named: "bookMark2"), for: .normal)
+                favButton.setImage(UIImage(named: "heart2"), for: .normal)
 
         }
         

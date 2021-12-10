@@ -10,9 +10,6 @@ import FirebaseFirestore
 import Firebase
 import FirebaseAuth
 
-
-
-
 class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldDelegate, UINavigationControllerDelegate{
 
     lazy var profileImage: UIImageView = {
@@ -34,10 +31,11 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     
     let name : UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.placeholder = "Write your name"
+        $0.placeholder = NSLocalizedString("write", comment: "")
         $0.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
         $0.layer.cornerRadius = 15
         $0.textAlignment = .center
+        $0.textColor = .black
         $0.font = .boldSystemFont(ofSize: 23)
       
         return $0
@@ -45,7 +43,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
 
     let signOutButton : UIButton = {
         $0.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
-        $0.setTitle("sign out", for: .normal)
+        $0.setTitle(NSLocalizedString("signOut", comment: ""), for: .normal)
         $0.setTitleColor(UIColor.black, for: .normal)
         $0.layer.cornerRadius = 15
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +56,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         change.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
         change.translatesAutoresizingMaskIntoConstraints = false
         change.layer.cornerRadius = 15
-        change.setTitle("Change Language", for: .normal)
+        change.setTitle(NSLocalizedString("change", comment: ""), for: .normal)
         change.setTitleColor(.black, for: .normal)
         change.addTarget(self, action: #selector(btnChangeLangauge), for: .touchUpInside)
         
@@ -71,7 +69,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         shareApp.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
         shareApp.translatesAutoresizingMaskIntoConstraints = false
         shareApp.layer.cornerRadius = 15
-        shareApp.setTitle("Share App", for: .normal)
+        shareApp.setTitle(NSLocalizedString("share", comment: ""), for: .normal)
         shareApp.setTitleColor(.black, for: .normal)
         shareApp.addTarget(self, action: #selector(shareTheApp), for: .touchUpInside)
         
@@ -99,9 +97,9 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     
    @objc func btnChangeLangauge() {
        let currentLangauge = Locale.current.languageCode
-       print("currentLangauge: \(currentLangauge ?? "")")
+     //  print("currentLangauge: \(currentLangauge ?? "")")
        let newLanguage = currentLangauge == "en" ? "er" : "en"
-       UserDefaults.standard.setValue([newLanguage], forKey: "AppleLangauges")
+       UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
         exit(0)
     }
     
@@ -119,12 +117,19 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         dismiss(animated: false)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        name.resignFirstResponder()
+
+               return true
+       }
+    
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupGradientView3()
-        self.title = "Profile"
+        self.name.delegate = self
+        self.title = NSLocalizedString("profile", comment: "")
         view.backgroundColor = UIColor(named: "Color")
     
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
@@ -140,7 +145,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
 
         NSLayoutConstraint.activate([
             profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 180),
+            profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             profileImage.heightAnchor.constraint(equalToConstant: 200),
             profileImage.widthAnchor.constraint(equalToConstant: 200)
         ])

@@ -18,6 +18,7 @@ class TabVC: UITabBarController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
         navController.tabBarItem.badgeColor = .black
+        navController.navigationBar.tintColor = .black
         navController.tabBarItem.image = image
         navController.tabBarItem.accessibilityTextualContext = .console
         navController.navigationBar.prefersLargeTitles = true
@@ -36,24 +37,23 @@ class TabVC: UITabBarController {
         tabBar.layer.masksToBounds = true
         view.backgroundColor = .white
         
-        guard let currentUserId = Auth.auth().currentUser?.uid else {
-            return
-        }
-
-        UsersService.shared.updateUserInfo(
-            user: User(
-                id: currentUserId,
-                name: "Afnan",
-                email: ""
-            )
-        )
+//        guard let currentUserId = Auth.auth().currentUser?.uid else {
+//            return
+//        }
+//
+//        UsersService.shared.updateUserInfo(
+//            user: User(
+//                id: currentUserId,
+//                name: "Afnan",
+//                email: ""
+//            )
+//        )
         
-
         viewControllers = [
-            createNavController(for: HomeVC() , title: NSLocalizedString("Home", comment: ""),image: UIImage(named: "adultsBook")!),
-            createNavController(for: ChildsBooks() , title: NSLocalizedString("Children", comment: ""),image: UIImage(named: "childsBook")!),
-            createNavController(for: FavouriteVC(), title: NSLocalizedString("Favourite", comment: ""),image: UIImage(named: "likeBook")!),
-            createNavController(for: ProfileVC(), title: NSLocalizedString("Profile", comment: ""),image: UIImage(named: "profile")!),
+            createNavController(for: HomeVC() , title: NSLocalizedString("home", comment: ""),image: UIImage(named: "adultsBook")!),
+            createNavController(for: ChildsBooks() , title: NSLocalizedString("child", comment: ""),image: UIImage(named: "childsBook")!),
+            createNavController(for: FavouriteVC(), title: NSLocalizedString("favourite", comment: ""),image: UIImage(named: "likeBook")!),
+            createNavController(for: ProfileVC(), title: NSLocalizedString("profile", comment: ""),image: UIImage(named: "profile")!),
     
      
            

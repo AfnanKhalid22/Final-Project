@@ -11,22 +11,21 @@ import UIKit
 class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     var a: Book?
+    
     var oldTabbarFr: CGRect = .zero
     
     var searchBook: Array<Book> = bookList
-
+    
     lazy var searchBar:UISearchBar = UISearchBar()
+    
     private var bookCV: UICollectionView?
     
-
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
           if searchText.isEmpty {
-              
-            let nweSearch = searchBook
-            searchBook = nweSearch
-              
-          
+
+            searchBook = bookList
+
               collectionView.reloadData()
           } else {
             searchBook = searchBook.filter({ oneBook in
@@ -39,7 +38,7 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
     }
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,7 +80,6 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func setupCollectionConstraints() {
           collectionView.translatesAutoresizingMaskIntoConstraints = false
           collectionView.layer.shadowRadius = 2.0
-       
           collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
           collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
           collectionView.heightAnchor.constraint(equalToConstant: 550).isActive = true
@@ -116,8 +114,6 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         let newVC = ReadArabicBook()
         newVC.title = a?.booksA[indexPath.row].bookName
         newVC.books = bookList[indexPath.row] as? Book
-
-        
         
         newVC.navigationItem.largeTitleDisplayMode = .never
            navigationController?.pushViewController(newVC,animated: true)
@@ -139,6 +135,43 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.frame = oldTabbarFr
     }
-    
-}
+        //MARK: UISearchbar delegate
+//        func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+//               isSearch = true
+//        }
+//
+//        func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+//               searchBar.resignFirstResponder()
+//               isSearch = false
+//        }
+//
+//        func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+//               searchBar.resignFirstResponder()
+//               isSearch = false
+//        }
+//
+//        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//               searchBar.resignFirstResponder()
+//               isSearch = false
+//        }
+//
+   }
+
+//if searchText.count == 0 {
+//    isSearch = false
+//    self.collectionView.reloadData()
+//} else {
+//    searchBook = searchBook.filter({ (text) -> Bool in
+//        let tmp: NSString = text as NSString
+//        let range = tmp.range(of: searchText, options: NSString.CompareOptions.caseInsensitive)
+//        return range.location != NSNotFound
+//    })
+//    if(filteredTableData.count == 0){
+//        isSearch = false
+//    } else {
+//        isSearch = true
+//    }
+//    self.collectionView.reloadData()
+//}
+
 

@@ -7,8 +7,8 @@
 */
 
 // login Page:
-"email" = "Enter Your Email ... ";
-"passWord" = "Enter Your Password ...";
+"email" = "Enter Your Email ";
+"password" = "Enter Your Password ";
 "login" = "LogIn";
 "register" = "Register";
 
@@ -19,7 +19,7 @@
 "profile" = "Profile";
 
 // label:
-"choose" = "Choose Your Language :";
+"choose" = "Choose The Book Language :";
 
 // buttons:
 "english" = "English";
@@ -29,7 +29,8 @@
 "favPage" = "Favourite Books";
 
 // profile page:
-"Write" = "Write Your Name";
+"profile" = "Profile";
+"write" = "Write Your Name";
 "change" = "Change Language";
 "share" ="Share App";
 "signOut" = "Sign Out";

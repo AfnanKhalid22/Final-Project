@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSource{
 
-    
+    var books: Book?
     
     var fBook: Array<FavArabic> = []
     
@@ -32,7 +33,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(named: "Color")
-        self.title = "Favorite Books"
+        self.title = NSLocalizedString("favPage", comment: "")
         view.reloadInputViews()
         
         view.addSubview(bookTV)
@@ -70,6 +71,17 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let pdfVC = pdfBook2()
+        
+        pdfVC.openedEBook = books?.name
+        pdfVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(pdfVC,animated: true)
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == selectedIndex {
           return 354
@@ -81,7 +93,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
        
         
-        let cell = fBook[indexPath.row]
+        let fb = fBook[indexPath.row]
         let alertcontroller = UIAlertController(title: "Delete Favorite Book"
                                                 , message: "Are you sure you want to delete this Book?"
                                                 , preferredStyle: UIAlertController.Style.alert
@@ -100,8 +112,13 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
                           style: UIAlertAction.Style.destructive,
                           handler: { Action in
                 if editingStyle == .delete {
-                    self.fBook.remove(at: indexPath.row)
-                    self.bookTV.deleteRows(at: [indexPath], with: .fade)
+                    
+                    print(fb.name)
+                    Firestore.firestore().collection("Favorite").document(fb.name).delete()
+                    
+//                    self.fBook.remove(at: indexPath.row)
+//                    self.bookTV.deleteRows(at: [indexPath], with: .fade)
+
                 }
                 self.bookTV.reloadData()
             })

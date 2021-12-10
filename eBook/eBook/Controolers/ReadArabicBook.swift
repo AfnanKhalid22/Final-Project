@@ -236,6 +236,7 @@ class BookCell1: UITableViewCell {
         // x: right and left
         // y: up and down
         
+        
         bookImage11.frame = CGRect(x: 100,
                                y: 10 ,
                                width: 190,

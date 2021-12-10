@@ -14,6 +14,8 @@ class UsersService {
     
     let usersCollection = Firestore.firestore().collection("users")
     
+    
+    
     func listenToUsers(completion: @escaping (([User]) -> Void)) {
         
         usersCollection.addSnapshotListener { snapshot, error in

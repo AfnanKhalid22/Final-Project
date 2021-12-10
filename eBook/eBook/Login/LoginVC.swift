@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
+import AVFoundation
 
 
 class LoginVC: UIViewController, UITextFieldDelegate  {
@@ -26,8 +28,10 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
     var emailTF: UITextField = {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
-        tf.backgroundColor = .systemGray6
-        tf.placeholder = ("   Enter Email ...")
+        tf.backgroundColor = .systemGray2
+        tf.attributedPlaceholder = NSAttributedString(
+            string: NSLocalizedString("email", comment: ""),
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         tf.layer.cornerRadius = .minimumMagnitude(20, 20)
         tf.isSecureTextEntry = false
 
@@ -38,9 +42,11 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
         let tf = UITextField()
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.isSecureTextEntry = true
-        tf.backgroundColor = .systemGray6
+        tf.backgroundColor = .systemGray2
         tf.layer.cornerRadius = .minimumMagnitude(20, 20)
-        tf.placeholder = ("   Enter Password....")
+        tf.attributedPlaceholder = NSAttributedString(
+            string: NSLocalizedString("password", comment: ""),
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
 
         return tf
     }()
@@ -50,7 +56,7 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = .maximumMagnitude(20, 20)
         btn.setTitleColor(.black, for: .normal)
-        btn.setTitle("Login", for: .normal)
+        btn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
         btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
         btn.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
         return btn
@@ -61,7 +67,7 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
         btn.setTitleColor(.black, for: .normal)
         btn.layer.cornerRadius = .maximumMagnitude(20, 20)
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Register", for: .normal)
+        btn.setTitle(NSLocalizedString("register", comment: ""), for: .normal) 
         btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
         btn.addTarget(self, action: #selector(registerBtnPressed), for: .touchUpInside)
         return btn
@@ -134,43 +140,40 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
     }
     
     @objc func registerBtnPressed() {
-        let email = emailTF.text!
-        let password = passwordTF.text!
         
-        if email.isEmpty || password.isEmpty {
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
+            let email = emailTF.text ?? ""
+            let password = passwordTF.text ?? ""
+            if email.isEmpty || password.isEmpty {
+              return
+            }
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
+              if error != nil {
                 print(error as Any)
                 return
+              }
+                let newVC2 = TabVC()
+                newVC2.modalPresentationStyle = .fullScreen
+                self.present(TabVC(), animated: true, completion: nil)
             }
-            let newVC1 = TabVC()
-            newVC1.navigationItem.largeTitleDisplayMode = .never
-            self.navigationController?.pushViewController(newVC1, animated: true)
-        }
         
         
     }
+    
     @objc func loginBtnPressed() {
-        let email = emailTF.text!
-        let password = passwordTF.text!
-        
-        if email.isEmpty || password.isEmpty {
-            return
-        }
-        
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
+            let email = emailTF.text ?? ""
+            let password = passwordTF.text ?? ""
+            if email.isEmpty || password.isEmpty {
+              return
+            }
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+              if error != nil {
                 print(error as Any)
                 return
+              }
+              let vc = TabVC()
+              vc.modalPresentationStyle = .fullScreen
+              self.present(vc, animated: true, completion: nil)
             }
-            
-            let newVC2 = TabVC()
-            newVC2.navigationItem.largeTitleDisplayMode = .never
-            self.navigationController?.viewControllers = [newVC2]
-        }
         
     }
 }
