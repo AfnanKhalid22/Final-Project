@@ -1,4 +1,4 @@
-# Final-Project
+# final-project-eBook
 eBook App 
 
 
