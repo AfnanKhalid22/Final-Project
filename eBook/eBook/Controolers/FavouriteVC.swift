@@ -24,7 +24,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
           tableV.dataSource = self
           tableV.register(FavouriteCell.self, forCellReuseIdentifier: "Fav")
           tableV.isHidden = false
-          tableV.backgroundColor = UIColor(named: "Color")
+          tableV.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
           
           return tableV
       }()
@@ -32,7 +32,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = UIColor(named: "Color")
+        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         self.title = NSLocalizedString("favPage", comment: "")
         view.reloadInputViews()
         
@@ -65,7 +65,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         
         cell.nameLabel2.text = a.name
         cell.bookImage2.image = UIImage(named: a.image)
-        cell.backgroundColor = UIColor(named: "Color")
+        cell.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         
         return cell
@@ -74,9 +74,9 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let pdfVC = pdfBook2()
+        let pdfVC = pdfBook1()
         
-        pdfVC.openedEBook = books?.name
+        pdfVC.openedBook = books?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(pdfVC,animated: true)
     }

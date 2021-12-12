@@ -33,7 +33,7 @@ class EnglishCell: UICollectionViewCell {
     private let nameLabel2: UILabel = {
         let namebook = UILabel()
     
-        namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 14.0)
+        namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 12.0)
         namebook.textAlignment = .center
         namebook.textColor = .black
         namebook.layer.cornerRadius = 25
@@ -46,7 +46,7 @@ class EnglishCell: UICollectionViewCell {
     private let favButton2: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "bookMark"), for: .normal)
+        button.setImage(UIImage(named: "heart1"), for: .normal)
         button.addTarget(self, action: #selector(favorite2), for: .touchUpInside)
     
         return button
@@ -56,10 +56,10 @@ class EnglishCell: UICollectionViewCell {
 
         if isActive2 {
             isActive2 = false
-            favButton2.setImage(UIImage(named: "bookMark"), for: .normal)
+            favButton2.setImage(UIImage(named: "heart1"), for: .normal)
         } else {
                isActive2 = true
-                favButton2.setImage(UIImage(named: "bookMark2"), for: .normal)
+                favButton2.setImage(UIImage(named: "heart2"), for: .normal)
             
             let name2 = nameLabel2.text ?? ""
             let image2 = bookImage2.image ?? UIImage(systemName: "house")
@@ -97,7 +97,7 @@ class EnglishCell: UICollectionViewCell {
         
         bookImage2.frame = CGRect(x: -5, y: 0, width: 180, height: 190)
         nameLabel2.frame = CGRect(x: 2, y: contentView.frame.size.height - 55, width: contentView.frame.size.width - 5, height: 40)
-        favButton2.frame = CGRect(x: 120, y: contentView.frame.size.height - 55, width: 40, height: 40)
+        favButton2.frame = CGRect(x: 110, y: contentView.frame.size.height - 55, width: 40, height: 40)
        
     }
 }

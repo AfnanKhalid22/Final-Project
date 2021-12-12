@@ -91,7 +91,9 @@ class ReadEnglishBook: UIViewController, UITableViewDelegate, UITableViewDataSou
          read.translatesAutoresizingMaskIntoConstraints = false
          read.setTitleColor(.black, for: .normal)
          read.setTitle("Read Book 📖 ", for: .normal)
-         read.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+         read.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+         read.layer.borderColor = UIColor.darkGray.cgColor
+         read.layer.borderWidth = 3.0
          read.layer.cornerRadius = 20
          read.layer.masksToBounds = true
          read.addTarget(self, action: #selector(readBook), for: .touchUpInside)
@@ -106,7 +108,9 @@ class ReadEnglishBook: UIViewController, UITableViewDelegate, UITableViewDataSou
           share.translatesAutoresizingMaskIntoConstraints = false
           share.setTitleColor(.black, for: .normal)
           share.setTitle("Share Book 🔗", for: .normal)
-          share.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+          share.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+          share.layer.borderColor = UIColor.darkGray.cgColor
+          share.layer.borderWidth = 3.0
           share.layer.cornerRadius = 20
           share.layer.masksToBounds = true
           share.addTarget(self, action: #selector(sharePressed2), for: .touchUpInside)
@@ -173,7 +177,9 @@ class BookCell2: UITableViewCell {
            namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
            namebook.textAlignment = .center
            namebook.textColor = .black
-           namebook.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+           namebook.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+           namebook.layer.borderColor = UIColor.darkGray.cgColor
+           namebook.layer.borderWidth = 3.0
            namebook.layer.cornerRadius = 20
            namebook.layer.masksToBounds = true
         
@@ -187,7 +193,9 @@ class BookCell2: UITableViewCell {
           auther.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
           auther.textColor = .black
           auther.textAlignment = .center
-          auther.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+          auther.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+          auther.layer.borderColor = UIColor.darkGray.cgColor
+          auther.layer.borderWidth = 3.0
           auther.layer.cornerRadius = 20
           auther.layer.masksToBounds = true
        
@@ -201,7 +209,9 @@ class BookCell2: UITableViewCell {
          num.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
          num.textColor = .black
          num.textAlignment = .center
-         num.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+         num.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+         num.layer.borderColor = UIColor.darkGray.cgColor
+         num.layer.borderWidth = 3.0
          num.layer.cornerRadius = 20
          num.layer.masksToBounds = true
        
@@ -240,9 +250,9 @@ override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
                                y: 10 ,
                                width: 190,
                                height: 300)
-        nameLabelE.frame = CGRect(x: 70,
+        nameLabelE.frame = CGRect(x: 25,
                                    y: 350 ,
-                               width: 250,
+                               width: 350,
                                height: 40)
         autherE.frame = CGRect(x: 70,
                                    y: 400 ,

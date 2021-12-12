@@ -39,7 +39,7 @@ class FavouriteCell: UITableViewCell {
          namebook.textAlignment = .center
          namebook.layer.cornerRadius = 20
          namebook.layer.masksToBounds = true
-         namebook.backgroundColor = UIColor(named: "Color")
+         namebook.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         return namebook
         

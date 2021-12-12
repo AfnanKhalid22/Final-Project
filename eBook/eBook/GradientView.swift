@@ -40,11 +40,15 @@ class GradientView: UIView {
         layer.insertSublayer(gradient, at: 5)
     }
     
-    
+  //  rgba(216,198,174,255)
+ //  rgba(230,213,197,255)
+//    let topColor = UIColor(red: 230/255, green: 237/255, blue: 184/255, alpha: 1).cgColor
+//    let bottomColor = UIColor(red: 240/255, green: 244/255, blue: 212/255, alpha: 0.5).cgColor
+
     private func setupGradientLayer() -> CAGradientLayer {
         let gradient = CAGradientLayer()
-        let topColor = UIColor(red: 230/255, green: 237/255, blue: 184/255, alpha: 1).cgColor
-        let bottomColor = UIColor(red: 240/255, green: 244/255, blue: 212/255, alpha: 0.5).cgColor
+        let topColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1).cgColor
+        let bottomColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5).cgColor
         gradient.colors = [topColor, bottomColor]
         gradient.locations = [0, 1]
         return gradient

@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import AVFoundation
+import TransitionButton
 
 
 class LoginVC: UIViewController, UITextFieldDelegate  {
@@ -16,9 +17,9 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
     
     lazy var logoImage: UIImageView = {
         let logo = UIImageView()
-        logo.image = UIImage(named: "logo")
+        logo.image = UIImage(named: "icon")
         logo.translatesAutoresizingMaskIntoConstraints = false
-        logo.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+//        logo.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         logo.layer.cornerRadius = 25
         logo.isUserInteractionEnabled = true
         
@@ -51,24 +52,24 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
         return tf
     }()
     
-    var loginBtn: UIButton = {
-        let btn = UIButton()
+    var loginBtn: TransitionButton = {
+        let btn = TransitionButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.layer.cornerRadius = .maximumMagnitude(20, 20)
         btn.setTitleColor(.black, for: .normal)
         btn.setTitle(NSLocalizedString("login", comment: ""), for: .normal)
-        btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        btn.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         btn.addTarget(self, action: #selector(loginBtnPressed), for: .touchUpInside)
         return btn
     }()
     
-    var registerBtn: UIButton = {
-        let btn = UIButton()
+    var registerBtn: TransitionButton = {
+        let btn = TransitionButton()
         btn.setTitleColor(.black, for: .normal)
         btn.layer.cornerRadius = .maximumMagnitude(20, 20)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.setTitle(NSLocalizedString("register", comment: ""), for: .normal) 
-        btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        btn.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         btn.addTarget(self, action: #selector(registerBtnPressed), for: .touchUpInside)
         return btn
     }()
@@ -139,6 +140,7 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
         let _ = GradientView(self)
     }
     
+    
     @objc func registerBtnPressed() {
         
             let email = emailTF.text ?? ""
@@ -151,12 +153,17 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
                 print(error as Any)
                 return
               }
-                let newVC2 = TabVC()
-                newVC2.modalPresentationStyle = .fullScreen
-                self.present(TabVC(), animated: true, completion: nil)
-            }
-        
-        
+                self.registerBtn.startAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.registerBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                           let newVC2 = TabVC()
+                            newVC2.navigationItem.largeTitleDisplayMode = .never
+                            self.navigationController?.pushViewController(newVC2,animated: true)
+                        }
+                    }
+                }
+    }
     }
     
     @objc func loginBtnPressed() {
@@ -170,10 +177,16 @@ class LoginVC: UIViewController, UITextFieldDelegate  {
                 print(error as Any)
                 return
               }
-              let vc = TabVC()
-              vc.modalPresentationStyle = .fullScreen
-              self.present(vc, animated: true, completion: nil)
-            }
-        
+                self.loginBtn.startAnimation()
+                DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                    self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                           let newVC2 = TabVC()
+                            newVC2.navigationItem.largeTitleDisplayMode = .never
+                            self.navigationController?.pushViewController(newVC2,animated: true)
+                        }
+                    }
+                }
     }
 }
+    }

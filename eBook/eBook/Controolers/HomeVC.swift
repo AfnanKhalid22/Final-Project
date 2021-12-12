@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import Lottie
+import TransitionButton
+
 
 class HomeVC: UIViewController {
     
@@ -34,8 +37,8 @@ class HomeVC: UIViewController {
         
     }()
     
-    var arabicBtn: UIButton = {
-        let btn = UIButton()
+    var arabicBtn: TransitionButton = {
+        let btn = TransitionButton()
           btn.translatesAutoresizingMaskIntoConstraints = false
           btn.setTitleColor(.black, for: .normal)
           btn.setTitle(NSLocalizedString("arabic", comment: ""), for: .normal)
@@ -43,15 +46,16 @@ class HomeVC: UIViewController {
           btn.layer.shadowColor = UIColor.black.cgColor
           btn.layer.shadowOpacity = 9.0
           btn.layer.shadowRadius = 10
-          btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+          btn.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
           btn.addTarget(self, action: #selector(arabicButtonPressed), for: .touchUpInside)
-          btn.layer.cornerRadius = 20
+          btn.cornerRadius = 20
+          btn.spinnerColor = .black
 
                return btn
     }()
     
-    var englishBtn: UIButton = {
-        let btn = UIButton()
+    var englishBtn: TransitionButton = {
+        let btn = TransitionButton()
           btn.translatesAutoresizingMaskIntoConstraints = false
           btn.setTitleColor(.black, for: .normal)
           btn.clipsToBounds = false
@@ -59,9 +63,10 @@ class HomeVC: UIViewController {
           btn.layer.shadowOpacity = 9.0
           btn.layer.shadowRadius = 10
           btn.setTitle(NSLocalizedString("english", comment: ""), for: .normal)
-          btn.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+          btn.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
           btn.addTarget(self, action: #selector(englishButtonPressed), for: .touchUpInside)
-          btn.layer.cornerRadius = 20
+          btn.cornerRadius = 20
+          btn.spinnerColor = .black
   
                return btn 
     }()
@@ -71,7 +76,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         setupGradientView2()
-        view.backgroundColor = UIColor(named: "Color")
+        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         view.addSubview(arabicBtn)
         view.addSubview(englishBtn)
@@ -111,15 +116,36 @@ class HomeVC: UIViewController {
     
     
     @objc func arabicButtonPressed() {
-        let arabicPage = ArabicVC()
-        arabicPage.navigationItem.largeTitleDisplayMode = .never
-           navigationController?.pushViewController(arabicPage,animated: true)
+        arabicBtn.startAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.arabicBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                   let arabicPage = ArabicVC()
+                    arabicPage.navigationItem.largeTitleDisplayMode = .never
+                    self.navigationController?.pushViewController(arabicPage,animated: true)
+                }
+            }
+        }
+
+//        let arabicPage = ArabicVC()
+//        arabicPage.navigationItem.largeTitleDisplayMode = .never
+//           navigationController?.pushViewController(arabicPage,animated: true)
     }
     
     @objc func englishButtonPressed() {
-        let englishPage = EnglishVC()
-        englishPage.navigationItem.largeTitleDisplayMode = .never
-           navigationController?.pushViewController(englishPage,animated: true)
+        englishBtn.startAnimation()
+        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+            self.englishBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                        let englishPage = EnglishVC()
+                    englishPage.navigationItem.largeTitleDisplayMode = .never
+        self.navigationController?.pushViewController(englishPage,animated: true)
+                }
+            }
+        }
+//        let englishPage = EnglishVC()
+//        englishPage.navigationItem.largeTitleDisplayMode = .never
+//           navigationController?.pushViewController(englishPage,animated: true)
 
         
     }

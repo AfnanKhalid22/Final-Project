@@ -21,8 +21,7 @@ class ChildEnglish: UIViewController, UICollectionViewDelegate, UICollectionView
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
           if searchText.isEmpty {
-            let nweSearch = searchBook
-            searchBook = nweSearch
+              searchBook = englishChildList
           } else {
             searchBook = searchBook.filter({ oneBook in
                 return oneBook.name.starts(with: searchText)
@@ -93,7 +92,6 @@ class ChildEnglish: UIViewController, UICollectionViewDelegate, UICollectionView
           cell.setCell(book: searchBook[indexPath.item])
 
            cell.backgroundColor = UIColor(named: "Color")
-           cell.layer.cornerRadius = 35
 
                 return cell
     }

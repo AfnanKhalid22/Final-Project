@@ -9,18 +9,20 @@ import UIKit
 import FirebaseFirestore
 import Firebase
 import FirebaseAuth
+import TransitionButton
 
 class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldDelegate, UINavigationControllerDelegate{
 
     lazy var profileImage: UIImageView = {
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         view.layer.cornerRadius = 25
         view.isUserInteractionEnabled = true
         return view
     }()
-    
+
+
     lazy var imagePicker : UIImagePickerController = {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -32,7 +34,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     let name : UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = NSLocalizedString("write", comment: "")
-        $0.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        $0.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         $0.layer.cornerRadius = 15
         $0.textAlignment = .center
         $0.textColor = .black
@@ -41,19 +43,21 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         return $0
     }(UITextField())
 
-    let signOutButton : UIButton = {
-        $0.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
-        $0.setTitle(NSLocalizedString("signOut", comment: ""), for: .normal)
-        $0.setTitleColor(UIColor.black, for: .normal)
-        $0.layer.cornerRadius = 15
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        return $0
-    }(UIButton())
+    let signOutButton : TransitionButton = {
+        var out = TransitionButton()
+        out.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+        out.setTitle(NSLocalizedString("signOut", comment: ""), for: .normal)
+        out.setTitleColor(UIColor.black, for: .normal)
+        out.layer.cornerRadius = 15
+        out.translatesAutoresizingMaskIntoConstraints = false
+        out.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+        
+        return out
+    }()
     
     let changeLanguage : UIButton = {
         let change = UIButton()
-        change.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        change.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         change.translatesAutoresizingMaskIntoConstraints = false
         change.layer.cornerRadius = 15
         change.setTitle(NSLocalizedString("change", comment: ""), for: .normal)
@@ -66,7 +70,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     
     let shareApp : UIButton = {
         let shareApp = UIButton()
-        shareApp.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        shareApp.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         shareApp.translatesAutoresizingMaskIntoConstraints = false
         shareApp.layer.cornerRadius = 15
         shareApp.setTitle(NSLocalizedString("share", comment: ""), for: .normal)
@@ -130,7 +134,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         setupGradientView3()
         self.name.delegate = self
         self.title = NSLocalizedString("profile", comment: "")
-        view.backgroundColor = UIColor(named: "Color")
+        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
     
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
 
@@ -210,10 +214,17 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            let vc = LoginVC()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true, completion: nil)
-         
+            self.signOutButton.startAnimation()
+            DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+                self.signOutButton.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                        let vc = LoginVC()
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true, completion: nil)
+                    }
+                }
+            }
+           
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
          

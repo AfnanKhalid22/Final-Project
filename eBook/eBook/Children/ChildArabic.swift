@@ -22,8 +22,7 @@ class ChildArabic: UIViewController, UICollectionViewDelegate, UICollectionViewD
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
           if searchText.isEmpty {
-            let nweSearch = searchBook
-            searchBook = nweSearch
+              searchBook = arabicChildList
           } else {
             searchBook = searchBook.filter({ oneBook in
                 return oneBook.name.starts(with: searchText)
@@ -94,7 +93,6 @@ class ChildArabic: UIViewController, UICollectionViewDelegate, UICollectionViewD
           cell.setCell(book: searchBook[indexPath.item])
 
            cell.backgroundColor = UIColor(named: "Color")
-           cell.layer.cornerRadius = 35
 
                 return cell
     }

@@ -21,8 +21,7 @@ class EnglishVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
           if searchText.isEmpty {
-            let nweSearch = searchBook
-            searchBook = nweSearch
+              searchBook = bookList2
           } else {
             searchBook = searchBook.filter({ oneBook in
               return oneBook.name.starts(with: searchText)

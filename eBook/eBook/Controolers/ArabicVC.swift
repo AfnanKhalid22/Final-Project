@@ -23,13 +23,11 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
           if searchText.isEmpty {
-
             searchBook = bookList
-
               collectionView.reloadData()
           } else {
             searchBook = searchBook.filter({ oneBook in
-              return oneBook.name.starts(with: searchText)
+                return oneBook.name.starts(with: searchText)
             })
           }
         collectionView.reloadData()
@@ -99,7 +97,7 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
           cell.setCell(book: searchBook[indexPath.item])
 
            cell.backgroundColor = UIColor(named: "Color")
-           cell.layer.cornerRadius = 35
+   //        cell.layer.cornerRadius = 35
 
                 return cell
     }

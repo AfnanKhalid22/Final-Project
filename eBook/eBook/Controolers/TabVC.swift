@@ -17,11 +17,11 @@ class TabVC: UITabBarController {
                          image: UIImage) -> UIViewController {
         let navController = UINavigationController(rootViewController: rootViewController)
         navController.tabBarItem.title = title
-        navController.tabBarItem.badgeColor = .black
-        navController.navigationBar.tintColor = .black
+//        navController.tabBarItem.badgeColor = .white
+//        navController.navigationBar.tintColor = .white
         navController.tabBarItem.image = image
-        navController.tabBarItem.accessibilityTextualContext = .console
-        navController.navigationBar.prefersLargeTitles = true
+        navController.tabBarItem.accessibilityTextualContext = .narrative
+        navController.navigationBar.prefersLargeTitles = false
     //    rootViewController.navigationItem.title = title
         return navController
       }
@@ -30,10 +30,10 @@ class TabVC: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        tabBar.backgroundColor = UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+            //   rgba(229,214,197,255)
+        tabBar.backgroundColor = .white //UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         tabBar.layer.cornerRadius = 15
-        tabBar.barTintColor =  UIColor(displayP3Red: 230/255, green:  237/255, blue: 184/255, alpha: 1)
+        tabBar.barTintColor = .white// UIColor(displayP3Red: 229/255, green:  214/255, blue: 197/255, alpha: 1)
         tabBar.layer.masksToBounds = true
         view.backgroundColor = .white
         
