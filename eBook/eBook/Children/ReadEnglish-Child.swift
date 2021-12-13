@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import WebKit
-import PDFReader
 
 
 class ReadEnglishChild: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-     var childBooks: ChildEnglishBook?
+     var childBooks: Book?
     
     var oldTabbarFr: CGRect = .zero
      
@@ -104,7 +102,7 @@ class ReadEnglishChild: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return childBooks?.booksEnglish.count ?? 0
+        return childBooks?.BooksInfo.count ?? 0
 
     }
     
@@ -112,12 +110,12 @@ class ReadEnglishChild: UIViewController, UITableViewDelegate, UITableViewDataSo
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookChildCell2", for: indexPath) as! BookChildCell2
         
-        let b = childBooks!.booksEnglish[indexPath.row]
+        let b = childBooks!.BooksInfo[indexPath.row]
         
-        cell.childnameLabel.text = b.bookNameE
-        cell.childbookImage.image = UIImage(named: b.bookImageE)
-        cell.bookAuther.text = b.autherE
-        cell.childPagesN.text = b.pageNumberE
+        cell.childnameLabel.text = b.bookName
+        cell.childbookImage.image = UIImage(named: b.bookImage)
+        cell.bookAuther.text = b.auther
+        cell.childPagesN.text = b.pageNumber
         cell.backgroundColor = UIColor(named: "Color")
       
         
@@ -137,9 +135,9 @@ class ReadEnglishChild: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @objc func readChildBook2() {
         
-        let pdfVC = pdfChildEnglish()
+        let pdfVC = pdfBook()
         
-        pdfVC.opendEngilahBook = childBooks?.name
+        pdfVC.openedBook = childBooks?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(pdfVC,animated: true)
    }

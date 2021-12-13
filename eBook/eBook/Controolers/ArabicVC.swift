@@ -103,15 +103,15 @@ class ArabicVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 150, height: 250)
+          return CGSize(width: 200, height: 250)
       }
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let newVC = ReadArabicBook()
-        newVC.title = a?.booksA[indexPath.row].bookName
-        newVC.books = bookList[indexPath.row] as? Book
+        newVC.title = a?.BooksInfo[indexPath.row].bookName
+        newVC.books = bookList[indexPath.row]
         
         newVC.navigationItem.largeTitleDisplayMode = .never
            navigationController?.pushViewController(newVC,animated: true)

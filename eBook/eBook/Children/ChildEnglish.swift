@@ -9,10 +9,10 @@ import UIKit
 
 class ChildEnglish: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
-    var e: ChildEnglishBook?
+    var e: Book?
     var oldTabbarFr: CGRect = .zero
     
-    var searchBook: Array<ChildEnglishBook> = englishChildList
+    var searchBook: Array<Book> = englishChildList
 
     lazy var searchBar:UISearchBar = UISearchBar()
     private var bookCV: UICollectionView?
@@ -97,15 +97,15 @@ class ChildEnglish: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 150, height: 250)
+          return CGSize(width: 200, height: 250)
       }
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let newVC = ReadEnglishChild()
-        newVC.title = e?.booksEnglish[indexPath.row].bookNameE
-        newVC.childBooks = englishChildList[indexPath.row] as? ChildEnglishBook
+        newVC.title = e?.BooksInfo[indexPath.row].bookName
+        newVC.childBooks = englishChildList[indexPath.row] 
 
         
         newVC.navigationItem.largeTitleDisplayMode = .never

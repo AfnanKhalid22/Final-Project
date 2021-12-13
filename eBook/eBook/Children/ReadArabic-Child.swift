@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import WebKit
-import PDFReader
 
 
 class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-     var childBooks: ChildArabicBook?
+     var childBooks: Book?
     var oldTabbarFr: CGRect = .zero
      
 
@@ -95,13 +93,13 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return childBooks?.booksArabic.count ?? 0
+        return childBooks?.BooksInfo.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookChildCell", for: indexPath) as! BookChildCell1
-        let b = childBooks!.booksArabic[indexPath.row]
+        let b = childBooks!.BooksInfo[indexPath.row]
         
 
         cell.childnameLabel.text = b.bookName
@@ -127,7 +125,7 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @objc func readChildBook1() {
         
-        let pdfVC = pdfChildArabic()
+        let pdfVC = pdfBook()
         
         pdfVC.openedBook = childBooks?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never

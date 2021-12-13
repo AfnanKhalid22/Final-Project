@@ -6,13 +6,11 @@
 //
 
 import UIKit
-import WebKit
-import PDFReader
 
 
 class ReadEnglishBook: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var booksE: EnglishBook?
+    var booksE: Book?
     var oldTabbarFr: CGRect = .zero
 
     lazy var tableView2: UITableView = {
@@ -57,18 +55,18 @@ class ReadEnglishBook: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return booksE?.booksB.count ?? 0
+        return booksE?.BooksInfo.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView2.dequeueReusableCell(withIdentifier: "EbookCell", for: indexPath) as! BookCell2
         
-        let b = booksE!.booksB[indexPath.item]
+        let b = booksE!.BooksInfo[indexPath.item]
         
-           cell.nameLabelE.text = b.bookNameE
-           cell.bookImageE.image = UIImage(named: b.bookImageE)
-           cell.autherE.text = b.autherE
-           cell.pagesNE.text = b.pageNumberE
+           cell.nameLabelE.text = b.bookName
+           cell.bookImageE.image = UIImage(named: b.bookImage)
+           cell.autherE.text = b.auther
+           cell.pagesNE.text = b.pageNumber
            cell.backgroundColor = UIColor(named: "Color")
         
         
@@ -122,8 +120,8 @@ class ReadEnglishBook: UIViewController, UITableViewDelegate, UITableViewDataSou
     
     @objc func readBook() {
         
-        let pdfVC = pdfBook2()
-        pdfVC.openedEBook = booksE?.name
+        let pdfVC = pdfBook()
+        pdfVC.openedBook = booksE?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never
            navigationController?.pushViewController(pdfVC,animated: true)
       
@@ -156,8 +154,6 @@ class BookCell2: UITableViewCell {
   static let identifier = "EbookCell"
     
     let pdfTitle = Date()
-    
-    @objc var webView: WKWebView!
     
      let bookImageE: UIImageView = {
         let bookImage = UIImageView()

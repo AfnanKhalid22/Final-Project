@@ -12,7 +12,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
 
     var books: Book?
     
-    var fBook: Array<FavArabic> = []
+    var fBook: Array<Fav> = []
     
     var selectedIndex = -1
 
@@ -25,6 +25,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
           tableV.register(FavouriteCell.self, forCellReuseIdentifier: "Fav")
           tableV.isHidden = false
           tableV.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+        tableV.alwaysBounceHorizontal = false
           
           return tableV
       }()
@@ -45,7 +46,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         ])
         
         
-        FavoriteServiceArabic.shared.listenToFavoriteBook { favBook in
+        FavoriteService.shared.listenToFavoriteBook { favBook in
                        self.fBook = favBook
                        self.bookTV.reloadData()
             
@@ -67,18 +68,17 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         cell.bookImage2.image = UIImage(named: a.image)
         cell.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
-        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let pdfVC = pdfBook1()
-        
-        pdfVC.openedBook = books?.name
-        pdfVC.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(pdfVC,animated: true)
+        let pdfVC1 = pdfBook()
+       pdfVC1.title = books?.BooksInfo[indexPath.row].bookName
+    //    pdfVC1.openedBook = books?.name
+        pdfVC1.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(pdfVC1,animated: true)
     }
     
     

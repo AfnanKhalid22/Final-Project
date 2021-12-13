@@ -9,6 +9,7 @@
 // login Page:
 "email" = "Enter Your Email ";
 "password" = "Enter Your Password ";
+"conf" = "Enter Your Password again";
 "login" = "LogIn";
 "register" = "Register";
 

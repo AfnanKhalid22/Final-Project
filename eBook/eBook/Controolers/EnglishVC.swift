@@ -12,11 +12,11 @@ class EnglishVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     var oldTabbarFr: CGRect = .zero
     let cellId = "PeopleCell"
-    var bookEE: EnglishBook?
-    var english: [EnglishBook] = []
+    var bookEE: Book?
+    var english: [Book] = []
     lazy var searchBar:UISearchBar = UISearchBar()
 
-    var searchBook: Array<EnglishBook> = bookList2
+    var searchBook: Array<Book> = bookList2
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -46,7 +46,7 @@ class EnglishVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         setupCollectionConstraints()
         collectionView.frame = view.bounds
         
-        searchBar.showsCancelButton = true
+        searchBar.showsCancelButton = false
         searchBar.searchBarStyle = UISearchBar.Style.default
         searchBar.placeholder = " Search..."
         searchBar.sizeToFit()
@@ -89,22 +89,22 @@ class EnglishVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: "cell2", for: indexPath) as! EnglishCell
-        cell.setCell2(book2: bookList2[indexPath.row] as! EnglishBook)
+        cell.setCell2(book2: bookList2[indexPath.row] )
         
         cell.backgroundColor = UIColor(named: "Color")
-        cell.layer.cornerRadius = 35
+
                 return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 150, height: 250)
+          return CGSize(width: 200, height: 250)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let newVC = ReadEnglishBook()
-        newVC.title = bookEE?.booksB[indexPath.row].bookNameE
-        newVC.booksE = bookList2[indexPath.row] as? EnglishBook
+        newVC.title = bookEE?.BooksInfo[indexPath.row].bookName
+        newVC.booksE = bookList2[indexPath.row] 
         
 
         newVC.navigationItem.largeTitleDisplayMode = .never

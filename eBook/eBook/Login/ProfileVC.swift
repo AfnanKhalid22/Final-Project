@@ -109,16 +109,31 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     
 
     @objc func OpenImage(_ sender: Any) {
-        let pick = UIImagePickerController()
-        pick.allowsEditing = true
-        pick.delegate = self
-        present(pick, animated: true)
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
     }
 
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+//        picker.dismiss(animated: true, completion: nil)
+////        guard let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage else {
+////            return
+////        }
+////
+////        guard let imageData = image.pngData() else {
+////            return
+////        }
+//        let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage;
+//        profileImage.image = image
+//        dismiss(animated: false)
+//    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage;
-        profileImage.image = image
-        dismiss(animated: false)
+        let image = info[.editedImage] ?? info [.originalImage] as? UIImage ?? ""
+     profileImage.image = image as? UIImage
+     dismiss(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -135,8 +150,11 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         self.name.delegate = self
         self.title = NSLocalizedString("profile", comment: "")
         view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
-    
+        
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+               profileImage.addGestureRecognizer(tapRecognizer)
+    
+//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
 
         profileImage.addGestureRecognizer(tapRecognizer)
         profileImage.image = .init(systemName: "455")
@@ -205,10 +223,10 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
             }
     }
 
-    @objc func imageTapped() {
-        print("Image tapped")
-        present(imagePicker, animated: true)
-    }
+//    @objc func imageTapped() {
+//        print("Image tapped")
+//        present(imagePicker, animated: true)
+//    }
     
     @objc func signOut() {
         let firebaseAuth = Auth.auth()
@@ -230,6 +248,12 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
          
         }
     }
+    
+    @objc func imageTapped() {
+        print("Image Tapped")
+        present(imagePicker, animated: true)
+       }
+    
     
     private func setupGradientView3() {
         let _ = GradientView(self)

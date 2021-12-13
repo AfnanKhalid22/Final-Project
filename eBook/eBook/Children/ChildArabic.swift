@@ -10,10 +10,10 @@ import UIKit
 
 class ChildArabic: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
-    var a: ChildArabicBook?
+    var a: Book?
     var oldTabbarFr: CGRect = .zero
     
-    var searchBook: Array<ChildArabicBook> = arabicChildList
+    var searchBook: Array<Book> = arabicChildList
 
     lazy var searchBar:UISearchBar = UISearchBar()
     private var bookCV: UICollectionView?
@@ -98,15 +98,15 @@ class ChildArabic: UIViewController, UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: 150, height: 250)
+          return CGSize(width: 200, height: 250)
       }
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let newVC = ReadArabicChild()
-        newVC.title = a?.booksArabic[indexPath.row].bookName
-        newVC.childBooks = arabicChildList[indexPath.row] as? ChildArabicBook
+        newVC.title = a?.BooksInfo[indexPath.row].bookName
+        newVC.childBooks = arabicChildList[indexPath.row] 
 
         
         

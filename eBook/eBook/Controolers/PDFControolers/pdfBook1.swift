@@ -8,7 +8,7 @@
 import UIKit
 import PDFKit
 
-class pdfBook1: UIViewController, PDFViewDelegate {
+class pdfBook: UIViewController, PDFViewDelegate {
     
     var oldTabbarFr: CGRect = .zero
     var openedBook: String?

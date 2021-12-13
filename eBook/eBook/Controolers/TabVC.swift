@@ -20,7 +20,7 @@ class TabVC: UITabBarController {
 //        navController.tabBarItem.badgeColor = .white
 //        navController.navigationBar.tintColor = .white
         navController.tabBarItem.image = image
-        navController.tabBarItem.accessibilityTextualContext = .narrative
+        navController.tabBarItem.accessibilityTextualContext = .console
         navController.navigationBar.prefersLargeTitles = false
     //    rootViewController.navigationItem.title = title
         return navController
@@ -31,23 +31,15 @@ class TabVC: UITabBarController {
         super.viewDidLoad()
         
             //   rgba(229,214,197,255)
-        tabBar.backgroundColor = .white //UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+        tabBar.backgroundColor = .white 
         tabBar.layer.cornerRadius = 15
-        tabBar.barTintColor = .white// UIColor(displayP3Red: 229/255, green:  214/255, blue: 197/255, alpha: 1)
+        tabBar.barTintColor = .white
         tabBar.layer.masksToBounds = true
         view.backgroundColor = .white
+        tabBar.unselectedItemTintColor = .black
+        tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         
-//        guard let currentUserId = Auth.auth().currentUser?.uid else {
-//            return
-//        }
-//
-//        UsersService.shared.updateUserInfo(
-//            user: User(
-//                id: currentUserId,
-//                name: "Afnan",
-//                email: ""
-//            )
-//        )
+        
         
         viewControllers = [
             createNavController(for: HomeVC() , title: NSLocalizedString("home", comment: ""),image: UIImage(named: "adultsBook")!),

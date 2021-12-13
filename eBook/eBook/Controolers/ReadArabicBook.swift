@@ -6,8 +6,6 @@
 //
 
 import UIKit
-import WebKit
-import PDFReader
 
 
 class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -95,13 +93,13 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return books?.booksA.count ?? 0
+        return books?.BooksInfo.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookCell1
         
-        let b = books!.booksA[indexPath.item]
+        let b = books!.BooksInfo[indexPath.item]
         
         cell.nameLabel11.text = b.bookName
         cell.bookImage11.image = UIImage(named: b.bookImage)
@@ -128,7 +126,7 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @objc func readBook1() {
         
-        let pdfVC = pdfBook1()
+        let pdfVC = pdfBook()
         
         pdfVC.openedBook = books?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never

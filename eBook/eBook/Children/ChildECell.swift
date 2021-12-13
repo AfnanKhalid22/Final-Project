@@ -13,7 +13,7 @@ class ChildECell: UICollectionViewCell {
     
     static let identfir = "childEnglishCell"
     
-     var book: ChildEnglishBook!
+     var book: Book!
     
     var isActive: Bool = false
   
@@ -31,13 +31,35 @@ class ChildECell: UICollectionViewCell {
     
      let nameLabel: UILabel = {
         let namebook = UILabel()
-          namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 16.0)
+          namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 23.0)
           namebook.textColor = .black
-          namebook.textAlignment = .right
+          namebook.textAlignment = .center
        
         return namebook
         
     }()
+    
+    
+    let autherLabel: UILabel = {
+       let auther = UILabel()
+         auther.font = UIFont(name: "Semibold", size: 16.0)
+         auther.textColor = .black
+         auther.textAlignment = .center
+      
+       return auther
+       
+   }()
+    
+    
+    let categoryLabel: UILabel = {
+       let category = UILabel()
+        category.font = UIFont(name: "Light-Italic", size: 16.0)
+        category.textColor = .black
+        category.textAlignment = .center
+      
+       return category
+       
+   }()
     
     private let favButton: UIButton = {
         let button = UIButton()
@@ -64,12 +86,14 @@ class ChildECell: UICollectionViewCell {
         
         let bookname = nameLabel.text ?? ""
         _ = bookImage.image ?? UIImage(systemName: "house")
-        FavoriteServiceArabic.shared.addToFavorite(favBook: FavArabic(image: book.image, name: bookname))
+        FavoriteService.shared.addToFavorite(favBook: Fav(image: book.image, name: bookname))
     }
     
-    func setCell(book: ChildEnglishBook) {
+    func setCell(book: Book) {
         bookImage.image = UIImage(named: book.image)
         nameLabel.text = book.name
+        autherLabel.text = book.by
+        categoryLabel.text = book.category
         self.book = book
     }
     
@@ -79,6 +103,8 @@ class ChildECell: UICollectionViewCell {
     
         contentView.addSubview(bookImage)
         contentView.addSubview(nameLabel)
+        contentView.addSubview(autherLabel)
+        contentView.addSubview(categoryLabel)
         contentView.addSubview(favButton)
     }
     
@@ -94,10 +120,12 @@ class ChildECell: UICollectionViewCell {
         // x: right and left
         // y: up and down
         
-        bookImage.frame = CGRect(x: -5, y: 0, width: 180, height: 190)
-        nameLabel.frame = CGRect(x: 5, y: contentView.frame.size.height - 55, width: contentView.frame.size.width - 5, height: 40)
-        favButton.frame = CGRect(x: 2, y: contentView.frame.size.height - 55, width: 40, height: 40)
-       
+        bookImage.frame = CGRect(x: -70, y: 15, width: 180, height: 190)
+        nameLabel.frame = CGRect(x: 80, y: contentView.frame.size.height - 200, width: contentView.frame.size.width - 5, height: 40)
+        autherLabel.frame = CGRect(x: 80, y: contentView.frame.size.height - 150, width: contentView.frame.size.width - 5, height: 40)
+        categoryLabel.frame = CGRect(x: 100, y: contentView.frame.size.height - 100, width: 130, height: 40)
+        favButton.frame = CGRect(x: 220, y: contentView.frame.size.height - 100, width: 40, height: 40)
+        
        
     }
     

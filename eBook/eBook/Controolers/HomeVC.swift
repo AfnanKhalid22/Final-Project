@@ -114,22 +114,18 @@ class HomeVC: UIViewController {
     
     
     
-    
     @objc func arabicButtonPressed() {
         arabicBtn.startAnimation()
         DispatchQueue.main.asyncAfter(deadline: .now()+1) {
             self.arabicBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                    
                    let arabicPage = ArabicVC()
                     arabicPage.navigationItem.largeTitleDisplayMode = .never
                     self.navigationController?.pushViewController(arabicPage,animated: true)
                 }
             }
         }
-
-//        let arabicPage = ArabicVC()
-//        arabicPage.navigationItem.largeTitleDisplayMode = .never
-//           navigationController?.pushViewController(arabicPage,animated: true)
     }
     
     @objc func englishButtonPressed() {
