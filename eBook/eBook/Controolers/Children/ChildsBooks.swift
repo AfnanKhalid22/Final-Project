@@ -44,7 +44,7 @@ class ChildsBooks: UIViewController {
           btn.layer.shadowColor = UIColor.black.cgColor
           btn.layer.shadowOpacity = 9.0
           btn.layer.shadowRadius = 10
-        btn.backgroundColor = .systemPurple//UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+          btn.backgroundColor = .systemPurple //UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
           btn.addTarget(self, action: #selector(arabicButtonPressed), for: .touchUpInside)
           btn.cornerRadius = 20
           btn.spinnerColor = .black
@@ -76,8 +76,7 @@ class ChildsBooks: UIViewController {
         super.viewDidLoad()
         
         setupGradientView2()
-        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
-        
+        view.backgroundColor = UIColor(named: "Color")// UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         view.addSubview(label)
         view.addSubview(logoImage)

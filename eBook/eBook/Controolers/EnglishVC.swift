@@ -105,8 +105,7 @@ class EnglishVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         let newVC = ReadEnglishBook()
         newVC.title = bookEE?.BooksInfo[indexPath.row].bookName
         newVC.booksE = bookList2[indexPath.row] 
-        
-
+    
         newVC.navigationItem.largeTitleDisplayMode = .never
            navigationController?.pushViewController(newVC,animated: true)
         

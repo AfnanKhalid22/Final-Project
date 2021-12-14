@@ -17,8 +17,9 @@ class EnglishCell: UICollectionViewCell {
     
     var isActive2: Bool = false
   
-    private let bookImage2: UIImageView = {
+    private let bookImage: UIImageView = {
         let bookImage = UIImageView()
+        bookImage.translatesAutoresizingMaskIntoConstraints = false
         bookImage.clipsToBounds = false
         bookImage.layer.shadowColor = UIColor.black.cgColor
         bookImage.layer.shadowOpacity = 9.0
@@ -30,14 +31,12 @@ class EnglishCell: UICollectionViewCell {
         return bookImage
     }()
     
-    private let nameLabel2: UILabel = {
+    private let nameLabel: UILabel = {
         let namebook = UILabel()
-    
-        namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 23.0)
+        namebook.translatesAutoresizingMaskIntoConstraints = false
+        namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 20.0)
         namebook.textAlignment = .center
-        namebook.textColor = .black
-        namebook.layer.cornerRadius = 25
-        namebook.layer.masksToBounds = true
+        namebook.textColor = UIColor(named: "textColor")
         
         return namebook
         
@@ -45,8 +44,9 @@ class EnglishCell: UICollectionViewCell {
     
     let autherLabel: UILabel = {
        let auther = UILabel()
+        auther.translatesAutoresizingMaskIntoConstraints = false
         auther.font = UIFont(name: "AvenirNextCondensed-Medium", size: 18.0) //UIFont(name: "Semibold", size: 8.0)
-         auther.textColor = .black
+         auther.textColor = UIColor(named: "textColor")
          auther.textAlignment = .center
       
        return auther
@@ -56,15 +56,16 @@ class EnglishCell: UICollectionViewCell {
     
     let categoryLabel: UILabel = {
        let category = UILabel()
+        category.translatesAutoresizingMaskIntoConstraints = false
         category.font = UIFont(name: "Light-Italic", size: 14.0)
-        category.textColor = .black
+        category.textColor = UIColor(named: "textColor")
         category.textAlignment = .center
       
        return category
        
    }()
     
-    private let favButton2: UIButton = {
+    private let favButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "heart1"), for: .normal)
@@ -89,13 +90,13 @@ class EnglishCell: UICollectionViewCell {
 
         if isActive2 {
             isActive2 = false
-            favButton2.setImage(UIImage(named: "heart1"), for: .normal)
+            favButton.setImage(UIImage(named: "heart1"), for: .normal)
         } else {
                isActive2 = true
-                favButton2.setImage(UIImage(named: "heart2"), for: .normal)
+                favButton.setImage(UIImage(named: "heart2"), for: .normal)
             
-            let name2 = nameLabel2.text ?? ""
-            _ = bookImage2.image ?? UIImage(systemName: "house")
+            let name2 = nameLabel.text ?? ""
+            _ = bookImage.image ?? UIImage(systemName: "house")
             
             FavoriteService.shared.addToFavorite(favBook: Fav(image: englishBook.image, name: name2))
 
@@ -111,8 +112,8 @@ class EnglishCell: UICollectionViewCell {
 //    }
     
     func setCell2(book2: Book) {
-        bookImage2.image = UIImage(named: book2.image)
-        nameLabel2.text = book2.name
+        bookImage.image = UIImage(named: book2.image)
+        nameLabel.text = book2.name
         autherLabel.text = book2.by
         categoryLabel.text = book2.category
         self.englishBook = book2
@@ -121,11 +122,11 @@ class EnglishCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView.addSubview(bookImage2)
-        contentView.addSubview(nameLabel2)
+        contentView.addSubview(bookImage)
+        contentView.addSubview(nameLabel)
         contentView.addSubview(autherLabel)
         contentView.addSubview(categoryLabel)
-        contentView.addSubview(favButton2)
+        contentView.addSubview(favButton)
       //  favouriteButtonState()
         contentView.clipsToBounds = false
     }
@@ -140,13 +141,35 @@ class EnglishCell: UICollectionViewCell {
         // x: right and left
         // y: up and down
         
-        bookImage2.frame = CGRect(x: -80, y: 15, width: 180, height: 190)
-        nameLabel2.frame = CGRect(x: 85, y: contentView.frame.size.height - 210, width: contentView.frame.size.width - 5, height: 40)
-        autherLabel.frame = CGRect(x: 75, y: contentView.frame.size.height - 150, width: contentView.frame.size.width - 5, height: 40)
-        categoryLabel.frame = CGRect(x: 95, y: contentView.frame.size.height - 100, width: 130, height: 40)
-        favButton2.frame = CGRect(x: 230, y: contentView.frame.size.height - 100, width: 40, height: 40)
+//        bookImage2.frame = CGRect(x: -80, y: 15, width: 180, height: 190)
+//        nameLabel2.frame = CGRect(x: 85, y: contentView.frame.size.height - 210, width: contentView.frame.size.width - 5, height: 40)
+//        autherLabel.frame = CGRect(x: 75, y: contentView.frame.size.height - 150, width: contentView.frame.size.width - 5, height: 40)
+//        categoryLabel.frame = CGRect(x: 95, y: contentView.frame.size.height - 100, width: 130, height: 40)
+//        favButton2.frame = CGRect(x: 230, y: contentView.frame.size.height - 100, width: 40, height: 40)
         
+        NSLayoutConstraint.activate([
+            bookImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            bookImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16),
+            bookImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -130),
+            bookImage.heightAnchor.constraint(equalToConstant: 140),
+            bookImage.widthAnchor.constraint(equalToConstant: 140),
+            
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+            nameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
        
+            autherLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            autherLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+            
+            categoryLabel.topAnchor.constraint(equalTo: autherLabel.bottomAnchor, constant: 20),
+            categoryLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+
+            favButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 180),
+            favButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+            favButton.heightAnchor.constraint(equalToConstant: 40),
+            favButton.widthAnchor.constraint(equalToConstant: 40)
+
+        ])
+      
        
     }
 }

@@ -14,14 +14,27 @@ import TransitionButton
 class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldDelegate, UINavigationControllerDelegate{
 
     lazy var profileImage: UIImageView = {
+        
         let view = UIImageView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         view.layer.cornerRadius = 25
         view.isUserInteractionEnabled = true
+      
         return view
     }()
-
+    
+    lazy var tapHere: UILabel = {
+        let tap = UILabel()
+         tap.textAlignment = .center
+        tap.textColor = UIColor.init(white: 5, alpha: -1)
+         tap.text = "Tap"
+         tap.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+         tap.textAlignment = NSTextAlignment.right
+         tap.numberOfLines = 1
+         tap.translatesAutoresizingMaskIntoConstraints = false
+        return tap
+    }()
 
     lazy var imagePicker : UIImagePickerController = {
         let imagePicker = UIImagePickerController()
@@ -43,17 +56,6 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         return $0
     }(UITextField())
 
-    let signOutButton : TransitionButton = {
-        var out = TransitionButton()
-        out.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
-        out.setTitle(NSLocalizedString("signOut", comment: ""), for: .normal)
-        out.setTitleColor(UIColor.black, for: .normal)
-        out.layer.cornerRadius = 15
-        out.translatesAutoresizingMaskIntoConstraints = false
-        out.addTarget(self, action: #selector(signOut), for: .touchUpInside)
-        
-        return out
-    }()
     
     let changeLanguage : UIButton = {
         let change = UIButton()
@@ -61,7 +63,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         change.translatesAutoresizingMaskIntoConstraints = false
         change.layer.cornerRadius = 15
         change.setTitle(NSLocalizedString("change", comment: ""), for: .normal)
-        change.setTitleColor(.black, for: .normal)
+        change.setTitleColor( .black, for: .normal)
         change.addTarget(self, action: #selector(btnChangeLangauge), for: .touchUpInside)
         
         
@@ -78,6 +80,18 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         shareApp.addTarget(self, action: #selector(shareTheApp), for: .touchUpInside)
         
         return shareApp
+    }()
+    
+    let signOutButton : TransitionButton = {
+        var out = TransitionButton()
+        out.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+        out.setTitle(NSLocalizedString("signOut", comment: ""), for: .normal)
+        out.setTitleColor(.black, for: .normal)
+        out.layer.cornerRadius = 15
+        out.translatesAutoresizingMaskIntoConstraints = false
+        out.addTarget(self, action: #selector(signOut), for: .touchUpInside)
+        
+        return out
     }()
     
     @objc func shareTheApp(sender:UIView){
@@ -100,12 +114,17 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
            }    }
     
    @objc func btnChangeLangauge() {
-       let currentLangauge = Locale.current.languageCode
-     //  print("currentLangauge: \(currentLangauge ?? "")")
-       let newLanguage = currentLangauge == "en" ? "er" : "en"
-       UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
-        exit(0)
-    }
+       
+       guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+               return
+              }
+              if UIApplication.shared.canOpenURL(settingsUrl) {
+               UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)")
+               })
+              }
+            }
+
     
 
     @objc func OpenImage(_ sender: Any) {
@@ -116,19 +135,6 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         present(picker, animated: true)
     }
 
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        picker.dismiss(animated: true, completion: nil)
-////        guard let image = info[UIImagePickerController.InfoKey.editedImage] as! UIImage else {
-////            return
-////        }
-////
-////        guard let imageData = image.pngData() else {
-////            return
-////        }
-//        let image = (info[.editedImage] ?? info[.originalImage]) as? UIImage;
-//        profileImage.image = image
-//        dismiss(animated: false)
-//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.editedImage] ?? info [.originalImage] as? UIImage ?? ""
@@ -149,12 +155,11 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         setupGradientView3()
         self.name.delegate = self
         self.title = NSLocalizedString("profile", comment: "")
-        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+        view.backgroundColor = UIColor(named: "Color")
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
                profileImage.addGestureRecognizer(tapRecognizer)
     
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
 
         profileImage.addGestureRecognizer(tapRecognizer)
         profileImage.image = .init(systemName: "455")
@@ -163,8 +168,8 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         profileImage.layer.cornerRadius = 100
         profileImage.contentMode = .scaleAspectFit
         profileImage.translatesAutoresizingMaskIntoConstraints = false
+       
         view.addSubview(profileImage)
-
         NSLayoutConstraint.activate([
             profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
@@ -206,6 +211,14 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
             signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             signOutButton.heightAnchor.constraint(equalToConstant: 40)
         ])
+        
+        profileImage.addSubview(tapHere)
+        NSLayoutConstraint.activate([
+            tapHere.topAnchor.constraint(equalTo: profileImage.topAnchor, constant: 90),
+           // tapHere.rightAnchor.constraint(equalTo: profileImage.rightAnchor, constant: -40),
+            tapHere.leftAnchor.constraint(equalTo: profileImage.leftAnchor, constant: 60),
+            tapHere.centerXAnchor.constraint(equalTo: profileImage.centerXAnchor)
+        ])
 
 
 
@@ -223,11 +236,6 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
             }
     }
 
-//    @objc func imageTapped() {
-//        print("Image tapped")
-//        present(imagePicker, animated: true)
-//    }
-    
     @objc func signOut() {
         let firebaseAuth = Auth.auth()
         do {

@@ -8,14 +8,13 @@
 import UIKit
 import FirebaseFirestore
 
-class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSource{
+class FavouriteVC : UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     var books: Book?
     
     var fBook: Array<Fav> = []
     
     var selectedIndex = -1
-
     
     lazy  var bookTV: UITableView = {
           let tableV = UITableView()
@@ -24,7 +23,7 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
           tableV.dataSource = self
           tableV.register(FavouriteCell.self, forCellReuseIdentifier: "Fav")
           tableV.isHidden = false
-          tableV.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+          tableV.backgroundColor = UIColor(named: "Color")// UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         tableV.alwaysBounceHorizontal = false
           
           return tableV
@@ -45,7 +44,6 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
             bookTV.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
         
-        
         FavoriteService.shared.listenToFavoriteBook { favBook in
                        self.fBook = favBook
                        self.bookTV.reloadData()
@@ -53,7 +51,6 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         }
         
     }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fBook.count
@@ -66,19 +63,21 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
         
         cell.nameLabel2.text = a.name
         cell.bookImage2.image = UIImage(named: a.image)
-        cell.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+        cell.backgroundColor = UIColor(named: "Color")//UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("bookname")
+        let fb = fBook[indexPath.row]
+        let pdfVC = pdfBook()
         
-        let pdfVC1 = pdfBook()
-       pdfVC1.title = books?.BooksInfo[indexPath.row].bookName
-    //    pdfVC1.openedBook = books?.name
-        pdfVC1.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(pdfVC1,animated: true)
+        pdfVC.openedBook = fb.name
+        pdfVC.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(pdfVC,animated: true)
+
     }
     
     
@@ -94,23 +93,23 @@ class FavouriteVC : UIViewController , UITableViewDelegate, UITableViewDataSourc
        
         
         let fb = fBook[indexPath.row]
-        let alertcontroller = UIAlertController(title: "Delete Favorite Book"
-                                                , message: "Are you sure you want to delete this Book?"
-                                                , preferredStyle: UIAlertController.Style.alert
+        let alertcontroller = UIAlertController(title: NSLocalizedString("delete", comment: "")
+            , message: NSLocalizedString("areYou?", comment: "")
+                , preferredStyle: UIAlertController.Style.alert
         )
         
-              alertcontroller.addAction(
-                      UIAlertAction(title: "cancel",
-                                    style: UIAlertAction.Style.default,
-                                    handler: { Action in print("...")
+      alertcontroller.addAction(
+       UIAlertAction(title: NSLocalizedString("cancel", comment: ""),
+          style: UIAlertAction.Style.default,
+                handler: { Action in print("...")
             })
             
         )
         
-        alertcontroller.addAction(
-            UIAlertAction(title: "Delete",
-                          style: UIAlertAction.Style.destructive,
-                          handler: { Action in
+    alertcontroller.addAction(
+        UIAlertAction(title: NSLocalizedString("d", comment: ""),
+                style: UIAlertAction.Style.destructive,
+                handler: { Action in
                 if editingStyle == .delete {
                     
                     print(fb.name)

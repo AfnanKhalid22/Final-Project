@@ -59,12 +59,31 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
        
    }()
     
+    
+//    let feedBack: UIButton = {
+//       let feedBack = UIButton()
+//      
+//        feedBack.translatesAutoresizingMaskIntoConstraints = false
+//        feedBack.setTitleColor(.black, for: .normal)
+//        feedBack.setTitle(" 🏷 أراء حول الكتاب", for: .normal)
+//        feedBack.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+//        feedBack.layer.borderColor = UIColor.darkGray.cgColor
+//        feedBack.layer.borderWidth = 3.0
+//        feedBack.layer.cornerRadius = 20
+//        feedBack.layer.masksToBounds = true
+//        feedBack.addTarget(self, action: #selector(openFeedBackPage), for: .touchUpInside)
+//
+//       return feedBack
+//       
+//   }()
+//    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(tableView1)
         view.addSubview(openBook)
         view.addSubview(shareBook)
+    //    view.addSubview(feedBack)
         view.backgroundColor = UIColor(named: "Color")
         
         NSLayoutConstraint.activate([
@@ -85,7 +104,13 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
             shareBook.widthAnchor.constraint(equalToConstant: 150),
             shareBook.heightAnchor.constraint(equalToConstant: 70),
             shareBook.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -200),
-            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80)
+            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
+//
+//            feedBack.widthAnchor.constraint(equalToConstant: 200),
+//            feedBack.heightAnchor.constraint(equalToConstant: 70),
+//            feedBack.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -120),
+//            feedBack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+
 
         ])
         
@@ -139,6 +164,17 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
               shareBook.popoverPresentationController?.sourceView = self.view
             self.present(shareBook, animated: true, completion: nil)
           }
+//
+//    @objc func openFeedBackPage() {
+//        let pdfVC = FeedBacKVC()
+//
+////        pdfVC.openedBook = books?.name
+//        pdfVC.navigationItem.largeTitleDisplayMode = .never
+//     //   self.present(pdfVC, animated: true, completion: nil)
+//        navigationController?.pushViewController(pdfVC,animated: true)
+//
+//    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

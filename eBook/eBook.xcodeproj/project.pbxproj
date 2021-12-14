@@ -41,7 +41,6 @@
 		6813C61B275EB24100D5FAFC /* English Grammar.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 6813C61A275EB24100D5FAFC /* English Grammar.pdf */; };
 		682614D927525EE50082A98A /* ReadEnglishBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682614D827525EE50082A98A /* ReadEnglishBook.swift */; };
 		682614E5275373540082A98A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738D1274E258900D03E05 /* Data.swift */; };
-		682614E6275373E40082A98A /* FavoriteServiceEnglish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684522C02750382F00035690 /* FavoriteServiceEnglish.swift */; };
 		682614E82753DD9A0082A98A /* الرجال من المريخ.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614E72753DD9A0082A98A /* الرجال من المريخ.pdf */; };
 		682614EA2753DDA60082A98A /* مت فارغاً.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614E92753DDA60082A98A /* مت فارغاً.pdf */; };
 		682614EE2753DDBB0082A98A /*  لأنك الله.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614ED2753DDBB0082A98A /*  لأنك الله.pdf */; };
@@ -123,7 +122,6 @@
 		682614F72753DDF00082A98A /* أسباب للبقاء حياً.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "أسباب للبقاء حياً.pdf"; sourceTree = "<group>"; };
 		682614FD2754B07B0082A98A /* It Ends with Us.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "It Ends with Us.pdf"; sourceTree = "<group>"; };
 		682615012754C8CC0082A98A /* FavoriteServiceArabic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceArabic.swift; sourceTree = "<group>"; };
-		684522C02750382F00035690 /* FavoriteServiceEnglish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceEnglish.swift; sourceTree = "<group>"; };
 		684522C3275173C100035690 /* كن بخير.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "كن بخير.pdf"; sourceTree = "<group>"; };
 		684522C527518D1600035690 /* pdfBook1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfBook1.swift; sourceTree = "<group>"; };
 		68A7389B274CFCE600D03E05 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,13 +184,23 @@
 			children = (
 				6813C5EC275E304E00D5FAFC /* ChildsBooks.swift */,
 				6813C5EE275E329A00D5FAFC /* ChildArabic.swift */,
-				6813C5F0275E32A800D5FAFC /* ChildACell.swift */,
 				6813C5F2275E32D200D5FAFC /* ChildEnglish.swift */,
-				6813C5F4275E32E700D5FAFC /* ChildECell.swift */,
 				6813C5F6275E330800D5FAFC /* ReadArabic-Child.swift */,
 				6813C5F8275E331D00D5FAFC /* ReadEnglish-Child.swift */,
 			);
 			path = Children;
+			sourceTree = "<group>";
+		};
+		68402FA72768BCE300854040 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				68A738CD274E1D1400D03E05 /* ArabicCell.swift */,
+				68A738CF274E228100D03E05 /* EnglishCell.swift */,
+				68A738D5274FB1B200D03E05 /* FavouriteCell.swift */,
+				6813C5F0275E32A800D5FAFC /* ChildACell.swift */,
+				6813C5F4275E32E700D5FAFC /* ChildECell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		684522C22751739800035690 /* Pdf */ = {
@@ -266,7 +274,7 @@
 				68A738BB274D088F00D03E05 /* Models */,
 				6813C5BD2757F0BC00D5FAFC /* Login */,
 				68A738BC274D08A500D03E05 /* Controolers */,
-				6813C61E275F43E600D5FAFC /* Children */,
+				68402FA72768BCE300854040 /* Views */,
 				68A738A7274CFCE800D03E05 /* Assets.xcassets */,
 				68A738A9274CFCE800D03E05 /* LaunchScreen.storyboard */,
 				68A738AC274CFCE800D03E05 /* Info.plist */,
@@ -280,7 +288,6 @@
 			children = (
 				68A738C1274D54F900D03E05 /* UserService.swift */,
 				682615012754C8CC0082A98A /* FavoriteServiceArabic.swift */,
-				684522C02750382F00035690 /* FavoriteServiceEnglish.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -300,13 +307,11 @@
 				68A738B6274CFDFD00D03E05 /* TabVC.swift */,
 				68A738B2274CFD1400D03E05 /* HomeVC.swift */,
 				68A738C5274D562600D03E05 /* ArabicVC.swift */,
-				68A738CD274E1D1400D03E05 /* ArabicCell.swift */,
 				68A738C7274D563800D03E05 /* EnglishVC.swift */,
-				68A738CF274E228100D03E05 /* EnglishCell.swift */,
 				68A738C9274D56B800D03E05 /* FavouriteVC.swift */,
-				68A738D5274FB1B200D03E05 /* FavouriteCell.swift */,
 				68A738D3274EBDA400D03E05 /* ReadArabicBook.swift */,
 				682614D827525EE50082A98A /* ReadEnglishBook.swift */,
+				6813C61E275F43E600D5FAFC /* Children */,
 			);
 			path = Controolers;
 			sourceTree = "<group>";
@@ -498,7 +503,6 @@
 				68A738CE274E1D1400D03E05 /* ArabicCell.swift in Sources */,
 				6813C5F9275E331D00D5FAFC /* ReadEnglish-Child.swift in Sources */,
 				68A738C6274D562600D03E05 /* ArabicVC.swift in Sources */,
-				682614E6275373E40082A98A /* FavoriteServiceEnglish.swift in Sources */,
 				682614E5275373540082A98A /* Data.swift in Sources */,
 				68A738A1274CFCE600D03E05 /* SceneDelegate.swift in Sources */,
 				68A738B5274CFD2E00D03E05 /* LoginVC.swift in Sources */,

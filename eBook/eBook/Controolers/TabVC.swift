@@ -31,11 +31,10 @@ class TabVC: UITabBarController {
         super.viewDidLoad()
         
             //   rgba(229,214,197,255)
-        tabBar.backgroundColor = .white 
+        tabBar.backgroundColor = UIColor(named: "textColor")
         tabBar.layer.cornerRadius = 15
         tabBar.barTintColor = .white
         tabBar.layer.masksToBounds = true
-        view.backgroundColor = .white
         tabBar.unselectedItemTintColor = .black
         tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.7)
         

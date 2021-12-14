@@ -22,7 +22,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         logo.layer.cornerRadius = 25
         logo.isUserInteractionEnabled = true
         
-
         return logo
     }()
     
@@ -33,7 +32,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
       name.placeholder = NSLocalizedString("write", comment: "")
       name.textAlignment = .center
       name.translatesAutoresizingMaskIntoConstraints = false
-      name.textColor = .black
+      name.textColor = UIColor(named: "textColor")
       name.font = UIFont.systemFont(ofSize: 14)
       name.backgroundColor = .lightGray
       name.layer.cornerRadius = 8
@@ -49,11 +48,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         tf.textAlignment = .center
         tf.layer.cornerRadius = 8
         tf.font = UIFont.systemFont(ofSize: 14)
-        tf.textColor = .black
+        tf.textColor = UIColor(named: "textColor")
         tf.attributedPlaceholder = NSAttributedString(
             string: NSLocalizedString("email", comment: ""),
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         tf.isSecureTextEntry = false
+     //   tf.placeholder.color
 
         return tf
     }()
@@ -65,7 +65,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         tf.textAlignment = .center
         tf.backgroundColor = .lightGray
         tf.font = UIFont.systemFont(ofSize: 14)
-        tf.textColor = .black
+        tf.textColor = UIColor(named: "textColor")
         tf.layer.cornerRadius = 8
         tf.attributedPlaceholder = NSAttributedString(
             string: NSLocalizedString("password", comment: ""),
@@ -79,7 +79,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
          conf.placeholder = NSLocalizedString("conf", comment: "")
          conf.textAlignment = .center
          conf.translatesAutoresizingMaskIntoConstraints = false
-         conf.textColor = .black
+         conf.textColor = UIColor(named: "textColor")
          conf.font = UIFont.systemFont(ofSize: 14)
          conf.backgroundColor = .lightGray
          conf.layer.cornerRadius = 8
@@ -164,45 +164,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     }
         }
     }
-//
-//  @objc func login() {
-//    let email = emailTF.text ?? ""
-//    let password = passwordTF.text ?? ""
-//    if email.isEmpty || password.isEmpty {
-//      print("Faild login ")
-//      return
-//    }
-//
-//    Auth.auth().signIn(withEmail: email, password: password) {result,error in
-//      let vc = UINavigationController(rootViewController: TabVC())
-//      vc.modalTransitionStyle = .crossDissolve
-//      vc.modalPresentationStyle = .fullScreen
-//      self.present(vc, animated: true, completion: nil)
-//    }
-//  }
-    
-//  @objc func SignupVC(_ sender: Any) {
-//
-//    let email = emailTF.text ?? ""
-//    let password = passwordTF.text ?? ""
-//    if email.isEmpty || password.isEmpty {
-//      print("Faild login ")
-//      return
-//    }
-//
-//    Auth.auth().createUser(withEmail: email, password: password) {result,error in
-//      let vc = UINavigationController(rootViewController: TabVC())
-//      vc.modalTransitionStyle = .crossDissolve
-//      vc.modalPresentationStyle = .fullScreen
-//      self.present(vc, animated: true, completion: nil)
-//        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
-//        Firestore.firestore().document("users/\(currentUserID)").setData([
-//            "id" : currentUserID,
-//            "name" : self.nameTF.text ?? "",
-//            "email" : self.emailTF.text ?? "",
-//        ], merge : true)
-//      }
-//    }
     
         @objc func registerBtnPressed() {
     
@@ -255,7 +216,7 @@ extension LoginVC {
     segmentedControl.addTarget(self, action: #selector(Segment), for: .valueChanged)
         NSLayoutConstraint.activate([
       stackView.topAnchor.constraint(equalTo: logoImage.topAnchor, constant: 350),
-      stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+      stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50),
       stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
       stackView.heightAnchor.constraint(equalToConstant: 270)
     ])

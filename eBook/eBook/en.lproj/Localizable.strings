@@ -36,3 +36,9 @@
 "share" ="Share App";
 "signOut" = "Sign Out";
 
+
+// delete from favorite Books
+"delete" = "Delete Book";
+"areYou?" = "Do you want delete this Book?";
+"cancel" = "Cancel";
+"d" = "Delete";

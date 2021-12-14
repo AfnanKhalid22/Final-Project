@@ -36,3 +36,9 @@
 "change" = "تغيير اللغة";
 "share" = "مشاركة التطبيق";
 "signOut" = "تسجيل خروج";
+
+// delete from favorite Books
+"delete" = "حذف الكتاب";
+"areYou?" = "هل تريد حذف هذا الكتاب ؟";
+"cancel" = "إلغاء";
+"d" = "حذف";

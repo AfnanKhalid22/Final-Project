@@ -1,5 +1,5 @@
 //
-//  ChildCell.swift
+//  ChildECell.swift
 //  eBook
 //
 //  Created by Fno Khalid on 02/05/1443 AH.
@@ -8,11 +8,10 @@
 import UIKit
 import FirebaseFirestore
 
-    var childFavoritBook: [Book] = []
 
-class ChildACell: UICollectionViewCell {
+class ChildECell: UICollectionViewCell {
     
-    static let identfir = "childCell"
+    static let identfir = "childEnglishCell"
     
      var book: Book!
     
@@ -20,6 +19,7 @@ class ChildACell: UICollectionViewCell {
   
      let bookImage: UIImageView = {
         let bookImage = UIImageView()
+         bookImage.translatesAutoresizingMaskIntoConstraints = false
          bookImage.clipsToBounds = false
          bookImage.layer.shadowColor = UIColor.black.cgColor
          bookImage.layer.shadowOpacity = 9.0
@@ -32,19 +32,22 @@ class ChildACell: UICollectionViewCell {
     
      let nameLabel: UILabel = {
         let namebook = UILabel()
+          namebook.translatesAutoresizingMaskIntoConstraints = false
           namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 23.0)
-          namebook.textColor = .black
-          namebook.textAlignment = .right
+          namebook.textColor = UIColor(named: "textColor")
+          namebook.textAlignment = .center
        
         return namebook
         
     }()
     
+    
     let autherLabel: UILabel = {
        let auther = UILabel()
+         auther.translatesAutoresizingMaskIntoConstraints = false
          auther.font = UIFont(name: "Semibold", size: 16.0)
-         auther.textColor = .black
-         auther.textAlignment = .right
+         auther.textColor = UIColor(named: "textColor")
+         auther.textAlignment = .center
       
        return auther
        
@@ -53,14 +56,14 @@ class ChildACell: UICollectionViewCell {
     
     let categoryLabel: UILabel = {
        let category = UILabel()
+        category.translatesAutoresizingMaskIntoConstraints = false
         category.font = UIFont(name: "Light-Italic", size: 16.0)
-        category.textColor = .black
-        category.textAlignment = .right
+        category.textColor = UIColor(named: "textColor")
+        category.textAlignment = .center
       
        return category
        
    }()
-    
     
     private let favButton: UIButton = {
         let button = UIButton()
@@ -74,6 +77,7 @@ class ChildACell: UICollectionViewCell {
     }()
     
     @objc func addfavoriteBook() {
+        
         if isActive {
             isActive = false
             favButton.setImage(UIImage(named: "heart1"), for: .normal)
@@ -86,7 +90,6 @@ class ChildACell: UICollectionViewCell {
         
         let bookname = nameLabel.text ?? ""
         _ = bookImage.image ?? UIImage(systemName: "house")
-       // let uuid = UUID().uuidString
         FavoriteService.shared.addToFavorite(favBook: Fav(image: book.image, name: bookname))
     }
     
@@ -96,8 +99,6 @@ class ChildACell: UICollectionViewCell {
         autherLabel.text = book.by
         categoryLabel.text = book.category
         self.book = book
-        
-        
     }
     
     override init(frame: CGRect) {
@@ -123,13 +124,36 @@ class ChildACell: UICollectionViewCell {
         // x: right and left
         // y: up and down
         
-        bookImage.frame = CGRect(x: 120, y: 15, width: 180, height: 190)
-        nameLabel.frame = CGRect(x: -85, y: contentView.frame.size.height - 210, width: contentView.frame.size.width - 5, height: 40)
-        autherLabel.frame = CGRect(x: -80, y: contentView.frame.size.height - 150, width: contentView.frame.size.width - 5, height: 40)
-        categoryLabel.frame = CGRect(x: -10, y: contentView.frame.size.height - 100, width: 130, height: 40)
-        favButton.frame = CGRect(x: 50, y: contentView.frame.size.height - 100, width: 35, height: 35)
+//        bookImage.frame = CGRect(x: -70, y: 15, width: 180, height: 190)
+//        nameLabel.frame = CGRect(x: 80, y: contentView.frame.size.height - 200, width: contentView.frame.size.width - 5, height: 40)
+//        autherLabel.frame = CGRect(x: 80, y: contentView.frame.size.height - 150, width: contentView.frame.size.width - 5, height: 40)
+//        categoryLabel.frame = CGRect(x: 100, y: contentView.frame.size.height - 100, width: 130, height: 40)
+//        favButton.frame = CGRect(x: 220, y: contentView.frame.size.height - 100, width: 40, height: 40)
         
+        NSLayoutConstraint.activate([
+            bookImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            bookImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16),
+            bookImage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -130),
+            bookImage.heightAnchor.constraint(equalToConstant: 140),
+            bookImage.widthAnchor.constraint(equalToConstant: 140),
+            
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+            nameLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
        
+            autherLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
+            autherLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+            
+            categoryLabel.topAnchor.constraint(equalTo: autherLabel.bottomAnchor, constant: 20),
+            categoryLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+
+            favButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 180),
+            favButton.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90),
+            favButton.heightAnchor.constraint(equalToConstant: 40),
+            favButton.widthAnchor.constraint(equalToConstant: 40)
+
+        ])
+      
+        
        
     }
     

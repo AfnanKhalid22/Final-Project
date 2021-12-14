@@ -28,7 +28,7 @@ class HomeVC: UIViewController {
           label.translatesAutoresizingMaskIntoConstraints = false
           label.text = NSLocalizedString("choose", comment: "")
           label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20.0)
-          label.textColor = .black
+          label.textColor = UIColor(named: "textColor")
           label.textAlignment = .center
           label.layer.cornerRadius = 20
           label.layer.masksToBounds = true
@@ -76,7 +76,7 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         
         setupGradientView2()
-        view.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+        view.backgroundColor = UIColor(named: "Color")//UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         view.addSubview(arabicBtn)
         view.addSubview(englishBtn)

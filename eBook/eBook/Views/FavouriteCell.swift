@@ -35,15 +35,17 @@ class FavouriteCell: UITableViewCell {
         let namebook = UILabel()
     
          namebook.font = UIFont(name: "AvenirNextCondensed-Medium", size: 20.0)
-         namebook.textColor = .black
+         namebook.textColor = UIColor(named: "textColor")
          namebook.textAlignment = .center
          namebook.layer.cornerRadius = 20
          namebook.layer.masksToBounds = true
-         namebook.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
+    //     namebook.backgroundColor = UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         return namebook
         
     }()
+    
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -62,8 +64,8 @@ class FavouriteCell: UITableViewCell {
         // x: right and left
         // y: up and down
 
-        nameLabel2.frame = CGRect(x: -55,
-                   y: 35,
+        nameLabel2.frame = CGRect(x: -10,
+                   y: 10,
                    width: 300,
                    height: contentView.frame.size.height-20)
         bookImage2.frame = CGRect(x: 250,
