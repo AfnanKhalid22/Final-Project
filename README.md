@@ -67,78 +67,72 @@ User :
 # React Router Routes (React App)
 
 |      Component      |   Permission   |                Behavior                  |
-|       :---          |     :---:      |                  ---:                    |
+
 |     lunchScreen     |     public     |                Show Logo                 |
-|       :---          |     :---:      |                  ---:                    |
-|    RigesterPage     |     public     |  Rigester page, link to login,           | 
-|                     |                |  navigate to homepage after Rigester.    |  
-|       :---          |     :---:      |                  ---:                    |
+
+|                     |                |  Rigester page, link to login,           | 
+|    RigesterPage     |     public     |  navigate to homepage after Rigester.    |  
+
 |                     |                |      Login page, link to Rigester,       |
 |     LoginPage       |     public     |      navigate to home page after login.  |
-|                     |                |                                          |
-|       :---          |     :---:      |                  ---:                    |
+
+
 |                     |                | Home page, link to Arabic Books List,    |
 |    firstHomePage    |   user only    | navigate to Arabic Books List after      |
 |                     |                |     pressed on Arabic button.            |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | Home page, link to English Books List,   |
 |    firstHomePage    |   user only    | navigate to English Books List after     |
-|                     |                |     pressed on English button.           |
-|       :---          |     :---:      |                  ---:                    |
+                                       |     pressed on English button.           |
+
 |                     |                | list Book page, link to Book information,|
 |    listBookPage     |   user only    |     navigate to Book information         |
 |                     |                |    after pressed on specific Book.       |
-|        :---         |     :---:      |                  ---:                    |
-|                     |                |                                          |
+
 |                     |                | information Book page, link to read Book,|
 | informationBookPage |   user only    |  navigate to Book PDF after pressed      |
 |                     |                |    on Read Book Button.                  |
-|       :---          |     :---:      |                  ---:                    |
-|                     |                |                                          |
+
 |                     |                | information Book page, link to share     |
 | informationBookPage |   user only    | Book, navigate to Alert sheet after      |
 |                     |                |   pressed on Share Book Button.          |
-|       :---          |     :---:      |                  ---:                    |
-|                     |                |                                          |
+
 |                     |                |    list Book Page, link to add book to   |
 |    listBookPage     |   user only    |    favourite page, after pressed         |
 |                     |                |         on heart Button.                 |
-|       :---          |     :---:      |                  ---:                    |
-|                     |                |                                          |
+
 |                     |                | favourite Book Page, link to raed        |
 |  favouriteBookPage  |   user only    |    favourite book, after pressed         |
 |                     |                |         on specific Book.                |
-|       :---          |     :---:      |                  ---:                    |
-|                     |                |                                          |
+
 |                     |                | cildren page, link to Arabic Books List, |
 |    cildrenPage      |   user only    | navigate to Arabic Books List after      |
 |                     |                |     pressed on Arabic button.            |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | cildren page, link to English Books List,|
 |    cildrenPage      |   user only    | navigate to English Books List after     |
 |                     |                |     pressed on English button.           |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | profile page, link to edit profile image,| 
 |    profilePage      |   user only    | navigate to iphone library               |
 |                     |                |  after tap on profile image.             |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | profile page, link to edit User name,    | 
 |    profilePage      |   user only    | navigate to edite user name after        |
 |                     |                |  tap on name field.                      |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | profile page, link to change language,   | 
 |    profilePage      |   user only    | navigate to iphone setting               |
 |                     |                |  after tap on change Language button.    |
-|                     |                |                                          |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | profile page, link to share Application, | 
 |    profilePage      |   user only    | navigate to share Alert sheet after      |
 |                     |                |  pressed on Share App button.            |
-|       :---          |     :---:      |                  ---:                    |
+
 |                     |                | profile page, link to signOut,           | 
 |    profilePage      |   user only    | navigate to login page after             |
 |                     |                |  pressed on SignOut button.              |
-|       :---          |     :---:      |                  ---:                    |
+
 
 # Components:
 
