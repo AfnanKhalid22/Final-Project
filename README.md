@@ -57,6 +57,7 @@ Cells:
 # Backlog:
  
 User :
+- can signup/login
 - see your profile
 - see English & Arabic Book List
 - see favourite book list
@@ -69,12 +70,12 @@ User :
 |      Component      |   Permission   |                                           Behavior                                                                       |
 |---------------------|----------------|--------------------------------------------------------------------------------------------------------------------------|
 |     lunchScreen     |     public     |                                        Show Logo                                                                         |                                                                                                          
-|    RigesterPage     |     public     | Rigester page, link to login, navigate to homepage after Rigester.                                                      |                                                   
-|     LoginPage       |     public     | Login page, link to Rigester,  navigate to home page after login.                                                       |
+|    RigesterPage     |     public     | Rigester page, link to login, navigate to homepage after Rigester.                                                       |                                                   
+|     LoginPage       |     public     | Login page, link to login,  navigate to home page after login.                                                           |
 |    firstHomePage    |   user only    | Home page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                      |
 |    firstHomePage    |   user only    | Home page, link to English Books List, navigate to English Books List after pressed on English button.                   |
 |    listBookPage     |   user only    | list Book page, link to Book information, navigate to Book information after pressed on specific Book.                   |
-| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF after pressed on Read Book Button.                        |
+| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF page after pressed on Read Book Button.                   |
 | informationBookPage |   user only    | information Book page, link to share Book, navigate to default share popup of the iOS after pressed on Share Book Button.|     
 |    listBookPage     |   user only    | list Book Page, link to add book to favourite page, after pressed on heart Button.                                       |                
 |  favouriteBookPage  |   user only    | favourite Book Page, link to raed   favourite book, after pressed  on specific Book.                                     |
@@ -83,7 +84,7 @@ User :
 |    profilePage      |   user only    | profile page, link to edit profile image, navigate to iphone library after tap on profile image.                         |
 |    profilePage      |   user only    | profile page, link to edit User name, navigate to edite user name after tap on name field.                               |    
 |    profilePage      |   user only    | profile page, link to change language, navigate to iphone setting after tap on change Language button.                   |
-|    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.             
+|    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.    |          
 |    profilePage      |   user only    | profile page, link to signOut, navigate to login page after pressed on SignOut button.                                   |
 |      :---           |      :---:     |                                         ---:                                                                             |
 
@@ -101,8 +102,8 @@ _ Auth Service:
   - auth.login(user)
   - auth.logout(user)
 _ Favourite Services.
+  -user.add
+  -user.delete
 
-# Links: 
-
-## repository Link:
+# repository Link:
   [click here](https://github.com/AfnanKhalid22/final-project-eBook)
