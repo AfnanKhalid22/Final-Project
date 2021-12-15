@@ -67,7 +67,7 @@ User :
 # React Router Routes (React App)
 
 |      Component      |   Permission   |                Behavior                  |
------------------------------------------------------------------------------------
+        :---                :---:                         ---:
 |     lunchScreen     |     public     |                Show Logo                 |
 
 |                     |                |  Rigester page, link to login,           | 
