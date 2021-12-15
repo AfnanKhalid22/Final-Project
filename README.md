@@ -172,4 +172,5 @@ https://github.com/AfnanKhalid22/final-project-eBook
 |     lunchScreen     |     public     |                Show Logo                 |
 |       :---          |     :---:      |                  ---:                    |
 |    RigesterPage     |     public     |  Rigester page, link to login,           | 
-|                     |                |  navigate to homepage after Rigester.    |  
+                                         navigate to homepage after Rigester.     
+|                     |                |
