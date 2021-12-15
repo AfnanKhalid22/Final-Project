@@ -66,73 +66,26 @@ User :
 
 # React Router Routes (React App)
 
-|      Component      |   Permission   |                Behavior                  |
-|        :---         |       :---:    |                   ---:                   |
-|     lunchScreen     |     public     |                Show Logo                 |
-|                     |                |                                          |
-|                     |                |  Rigester page, link to login,           | 
-|    RigesterPage     |     public     |  navigate to homepage after Rigester.    |  
-|                     |                |                                          |
-|                     |                |      Login page, link to Rigester,       |
-|     LoginPage       |     public     |      navigate to home page after login.  |
-|                     |                |                                          |
-|                     |                |                                          |
-|                     |                | Home page, link to Arabic Books List,    |
-|    firstHomePage    |   user only    | navigate to Arabic Books List after      |
-|                     |                |     pressed on Arabic button.            |
-|                     |                |                                          |
-|                     |                | Home page, link to English Books List,   |
-|    firstHomePage    |   user only    | navigate to English Books List after     |
-|                     |                |     pressed on English button.           |
-|                     |                |                                          |
-|                     |                | list Book page, link to Book information,|
-|    listBookPage     |   user only    |     navigate to Book information         |
-|                     |                |    after pressed on specific Book.       |
-|                     |                |                                          |
-|                     |                | information Book page, link to read Book,|
-| informationBookPage |   user only    |  navigate to Book PDF after pressed      |
-|                     |                |    on Read Book Button.                  |
-|                     |                |                                          |
-|                     |                | information Book page, link to share     |
-| informationBookPage |   user only    | Book, navigate to Alert sheet after      |
-|                     |                |   pressed on Share Book Button.          |
-|                     |                |                                          |
-|                     |                |    list Book Page, link to add book to   |
-|    listBookPage     |   user only    |    favourite page, after pressed         |
-|                     |                |         on heart Button.                 |
-|                     |                |                                          |
-|                     |                | favourite Book Page, link to raed        |
-|  favouriteBookPage  |   user only    |    favourite book, after pressed         |
-|                     |                |         on specific Book.                |
-|                     |                |                                          |
-|                     |                | cildren page, link to Arabic Books List, |
-|    cildrenPage      |   user only    | navigate to Arabic Books List after      |
-|                     |                |     pressed on Arabic button.            |
-|                     |                |                                          |
-|                     |                | cildren page, link to English Books List,|
-|    cildrenPage      |   user only    | navigate to English Books List after     |
-|                     |                |     pressed on English button.           |
-|                     |                |                                          |
-|                     |                | profile page, link to edit profile image,| 
-|    profilePage      |   user only    | navigate to iphone library               |
-|                     |                |  after tap on profile image.             |
-|                     |                |                                          |
-|                     |                | profile page, link to edit User name,    | 
-|    profilePage      |   user only    | navigate to edite user name after        |
-|                     |                |  tap on name field.                      |
-|                     |                |                                          |
-|                     |                | profile page, link to change language,   | 
-|    profilePage      |   user only    | navigate to iphone setting               |
-|                     |                |  after tap on change Language button.    |
-|                     |                |                                          |
-|                     |                | profile page, link to share Application, | 
-|    profilePage      |   user only    | navigate to share Alert sheet after      |
-|                     |                |  pressed on Share App button.            |
-|                     |                |                                          |
-|                     |                | profile page, link to signOut,           | 
-|    profilePage      |   user only    | navigate to login page after             |
-|                     |                |  pressed on SignOut button.              |
-|      :---           |      :---:     |               ---:                       |
+|      Component      |   Permission   |                                           Behavior                                                                       |
+|---------------------|----------------|--------------------------------------------------------------------------------------------------------------------------|
+|     lunchScreen     |     public     |                                        Show Logo                                                                         |                                                                                                          
+|    RigesterPage     |     public     | Rigester page, link to login, navigate to homepage after Rigester.                                                      |                                                   
+|     LoginPage       |     public     | Login page, link to Rigester,  navigate to home page after login.                                                       |
+|    firstHomePage    |   user only    | Home page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                      |
+|    firstHomePage    |   user only    | Home page, link to English Books List, navigate to English Books List after pressed on English button.                   |
+|    listBookPage     |   user only    | list Book page, link to Book information, navigate to Book information after pressed on specific Book.                   |
+| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF after pressed on Read Book Button.                        |
+| informationBookPage |   user only    | information Book page, link to share Book, navigate to default share popup of the iOS after pressed on Share Book Button.|     
+|    listBookPage     |   user only    | list Book Page, link to add book to favourite page, after pressed on heart Button.                                       |                
+|  favouriteBookPage  |   user only    | favourite Book Page, link to raed   favourite book, after pressed  on specific Book.                                     |
+|    cildrenPage      |   user only    | cildren page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                   |
+|    cildrenPage      |   user only    | cildren page, link to English Books List, navigate to English Books List after  pressed on English button.               |
+|    profilePage      |   user only    | profile page, link to edit profile image, navigate to iphone library after tap on profile image.                         |
+|    profilePage      |   user only    | profile page, link to edit User name, navigate to edite user name after tap on name field.                               |    
+|    profilePage      |   user only    | profile page, link to change language, navigate to iphone setting after tap on change Language button.                   |
+|    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.             
+|    profilePage      |   user only    | profile page, link to signOut, navigate to login page after pressed on SignOut button.                                   |
+|      :---           |      :---:     |                                         ---:                                                                             |
 
 # Components:
 
@@ -151,20 +104,5 @@ _ Favourite Services.
 
 # Links: 
 
-_ repository Link:
-https://github.com/AfnanKhalid22/final-project-eBook
-
--
-  
-
-
-
-
-
-|      Component      |   Permission   |                Behavior                  |
-|                     |                |                                          |
-|     lunchScreen     |     public     |                Show Logo                 |
-|       :---          |     :---:      |                  ---:                    |
-|    RigesterPage     |     public     |  Rigester page, link to login,           | 
-                                         navigate to homepage after Rigester.     
-|                     |                |
+## repository Link:
+  [Link to your trello board](https://github.com/AfnanKhalid22/final-project-eBook) or picture of your physical board
