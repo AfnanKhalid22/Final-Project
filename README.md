@@ -162,3 +162,14 @@ https://github.com/AfnanKhalid22/final-project-eBook
 
 -
   
+
+
+
+
+
+|      Component      |   Permission   |                Behavior                  |
+|                     |                |                                          |
+|     lunchScreen     |     public     |                Show Logo                 |
+|       :---          |     :---:      |                  ---:                    |
+|    RigesterPage     |     public     |  Rigester page, link to login,           | 
+|                     |                |  navigate to homepage after Rigester.    |  
