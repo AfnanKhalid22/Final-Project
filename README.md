@@ -66,6 +66,10 @@ User :
 
 
 # React Router Routes (React App)
+<<<<<<< HEAD
+=======
+
+>>>>>>> a4f72c70c30deb1e47e1bd2d62bb9d6ea826a40d
 |      Component      |   Permission   |                                           Behavior                                                                       |
 |---------------------|----------------|--------------------------------------------------------------------------------------------------------------------------|
 |     lunchScreen     |     public     |                                        Show Logo                                                                         |                                                                                                          
@@ -85,7 +89,12 @@ User :
 |    profilePage      |   user only    | profile page, link to change language, navigate to iphone setting after tap on change Language button.                   |
 |    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.    |          
 |    profilePage      |   user only    | profile page, link to signOut, navigate to login page after pressed on SignOut button.                                   |
+<<<<<<< HEAD
 |
+=======
+|      :---           |      :---:     |                                         ---:                                                                             |
+
+>>>>>>> a4f72c70c30deb1e47e1bd2d62bb9d6ea826a40d
 # Components:
 
  - Rigester $ LogIn Page 
@@ -104,7 +113,11 @@ _ Favourite Services.
   -user.delete
 
 # repository Link:
+<<<<<<< HEAD
  [click here](https://github.com/AfnanKhalid22/final-project-eBook)
 
 -
   
+=======
+  [click here](https://github.com/AfnanKhalid22/final-project-eBook)
+>>>>>>> a4f72c70c30deb1e47e1bd2d62bb9d6ea826a40d
