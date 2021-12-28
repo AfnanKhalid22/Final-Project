@@ -15,7 +15,7 @@
 
 // tab Bar:
 "home" = "Home";
-"child" = "Cildren";
+"child" = "Children";
 "favourite" = "Favourite";
 "profile" = "Profile";
 
@@ -42,3 +42,21 @@
 "areYou?" = "Do you want delete this Book?";
 "cancel" = "Cancel";
 "d" = "Delete";
+
+// greeting
+"Good Afternoon" = "Good Afternoon ♥️";
+"Good Morning" = "Good Morning ♥️";
+"Good Evening" = "Good Evening ♥️";
+"Good Night" = "Good Night 😴";
+"Sleep" = "You should be sleeping right now 💤";
+
+// child Greeting
+"Good AfternoonB" = "Good Afternoon little reader ♥️";
+"Good MorningB" = "Good Morning little reader ♥️";
+"Good EveningB" = "Good Evening little reader ♥️";
+"Good NightB" = "Good Night little reader 😴";
+"SleepB" = "You should be sleeping right now 💤";
+
+
+
+

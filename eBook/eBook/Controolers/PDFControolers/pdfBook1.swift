@@ -12,6 +12,7 @@ class pdfBook: UIViewController, PDFViewDelegate {
     
     var oldTabbarFr: CGRect = .zero
     var openedBook: String?
+    var isSave: Bool = false
     
     //pdf View
     private var pdfView: PDFView?
@@ -66,13 +67,41 @@ class pdfBook: UIViewController, PDFViewDelegate {
     }
     
     @objc func handlePageChange() {
+        
         // get current page number
         let currentPageNum = pdfDocument!.index(for: (pdfView?.currentPage)!) + 1
         let pageTotalAndCurrentNumber = "\(currentPageNum)/\(totalPageCount)"
         
-        
         // cahnge Title
         title = " [\(pageTotalAndCurrentNumber)]"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action: #selector(savePageNumber))
+    }
+    
+    @objc func savePageNumber() {
+        if isSave {
+            isSave = false
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action:  #selector(savePageNumber))
+        } else {
+
+               isSave = true
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .done, target: self, action: #selector(didTap))
+        }
+//        let bookname = nameLabel.text ?? ""
+//        _ = bookImage.image ?? UIImage(systemName: "house")
+//        FavoriteService.shared.addToFavorite(favBook: Fav(image: book.image, name: bookname))
+        print("save the page")
+    }
+    
+    @objc func didTap() {
+        if isSave {
+            isSave = true
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action:  #selector(didTap))
+            
+        } else {
+
+               isSave = false
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .done, target: self, action:  #selector(savePageNumber))
+        }
     }
     
     

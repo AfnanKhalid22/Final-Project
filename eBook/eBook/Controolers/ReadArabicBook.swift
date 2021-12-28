@@ -6,13 +6,16 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    
+  
      var books: Book?
-    var oldTabbarFr: CGRect = .zero
+    
+   // var player: AVAudioPlayer?
+    
+     var oldTabbarFr: CGRect = .zero
      
 
     lazy var tableView1: UITableView = {
@@ -27,14 +30,16 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let openBook: UIButton = {
        let read = UIButton()
-      
+     //   82, 108, 154, 1
+
+
         read.translatesAutoresizingMaskIntoConstraints = false
         read.setTitleColor(.black, for: .normal)
-        read.setTitle(" 📖 تصفح الكتاب", for: .normal)
+        read.setImage(UIImage(named: "readBook"), for: .normal)
         read.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         read.layer.borderColor = UIColor.darkGray.cgColor
         read.layer.borderWidth = 3.0
-        read.layer.cornerRadius = 20
+        read.layer.cornerRadius = 30
         read.layer.masksToBounds = true
         read.addTarget(self, action: #selector(readBook1), for: .touchUpInside)
        
@@ -42,48 +47,33 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
        
    }()
     
+  //  rgb(240,124,124)
+    
     let shareBook: UIButton = {
        let share = UIButton()
       
         share.translatesAutoresizingMaskIntoConstraints = false
         share.setTitleColor(.black, for: .normal)
-        share.setTitle("🔗 شارك الكتاب", for: .normal)
-        share.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+        share.setImage(UIImage(named: "headphone"), for: .normal)
+       share.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         share.layer.borderColor = UIColor.darkGray.cgColor
         share.layer.borderWidth = 3.0
-        share.layer.cornerRadius = 20
+        share.layer.cornerRadius = 35
         share.layer.masksToBounds = true
-        share.addTarget(self, action: #selector(sharePressed), for: .touchUpInside)
+        share.addTarget(self, action: #selector(audioBook), for: .touchUpInside)
 
        return share
        
    }()
     
-    
-//    let feedBack: UIButton = {
-//       let feedBack = UIButton()
-//      
-//        feedBack.translatesAutoresizingMaskIntoConstraints = false
-//        feedBack.setTitleColor(.black, for: .normal)
-//        feedBack.setTitle(" 🏷 أراء حول الكتاب", for: .normal)
-//        feedBack.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
-//        feedBack.layer.borderColor = UIColor.darkGray.cgColor
-//        feedBack.layer.borderWidth = 3.0
-//        feedBack.layer.cornerRadius = 20
-//        feedBack.layer.masksToBounds = true
-//        feedBack.addTarget(self, action: #selector(openFeedBackPage), for: .touchUpInside)
-//
-//       return feedBack
-//       
-//   }()
-//    
+       
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(tableView1)
         view.addSubview(openBook)
         view.addSubview(shareBook)
-    //    view.addSubview(feedBack)
+    
         view.backgroundColor = UIColor(named: "Color")
         
         NSLayoutConstraint.activate([
@@ -96,20 +86,15 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView1.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView1.leftAnchor.constraint(equalTo: view.leftAnchor),
             
-            openBook.widthAnchor.constraint(equalToConstant: 150),
-            openBook.heightAnchor.constraint(equalToConstant: 70),
-            openBook.bottomAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -130),
-            openBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80),
+            openBook.widthAnchor.constraint(equalToConstant: 100),
+            openBook.heightAnchor.constraint(equalToConstant: 100),
+            openBook.bottomAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -100),
+            openBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70),
 
-            shareBook.widthAnchor.constraint(equalToConstant: 150),
-            shareBook.heightAnchor.constraint(equalToConstant: 70),
+            shareBook.widthAnchor.constraint(equalToConstant: 100),
+            shareBook.heightAnchor.constraint(equalToConstant: 100),
             shareBook.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -200),
-            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
-//
-//            feedBack.widthAnchor.constraint(equalToConstant: 200),
-//            feedBack.heightAnchor.constraint(equalToConstant: 70),
-//            feedBack.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -120),
-//            feedBack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -70),
 
 
         ])
@@ -132,8 +117,6 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.pagesN.text = b.pageNumber
         cell.backgroundColor = UIColor(named: "Color")
       
-        
-        
         return cell
     }
     
@@ -147,33 +130,68 @@ class ReadArabicBook: UIViewController, UITableViewDelegate, UITableViewDataSour
           }
         }
     
-
-    
     @objc func readBook1() {
-        
+
         let pdfVC = pdfBook()
-        
         pdfVC.openedBook = books?.name
         pdfVC.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(pdfVC,animated: true)
    }
-    
-           //share
-          @objc func sharePressed (_ sender: Any) {
-              let shareBook = UIActivityViewController(activityItems: [self.books?.name ?? ""], applicationActivities: nil)
-              shareBook.popoverPresentationController?.sourceView = self.view
-            self.present(shareBook, animated: true, completion: nil)
-          }
+
+    @objc func audioBook() {
+      //  let position = Book?.self
+        
+        let audioVC = AudioBookVC(audioBook:
+                                    Book(image: books?.image ?? "",
+                                    name: books?.name ?? "",
+                                    by: books?.by ?? "",
+                                    category: books?.category ?? "" ,
+                                    BooksInfo:
+                                    [BookInformation(
+                                    bookImage: "",
+                                    bookName: "",
+                                    auther: "",
+                                    pageNumber: "")]))
+
+        present(audioVC, animated: true, completion: nil)
+
+//        let vc = MusicPlayerVC(album: albums[indexPath.row])
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        present(vc, animated: true, completion: nil)
+
+      
+//        if let player = player, player.isPlaying {
+//           // stop playback
+//           player.stop()
+//     }
+//        else {
+//       // set up player, and play
+//            let urlString = Bundle.main.path(forResource: books?.name, ofType: "mp3")
 //
-//    @objc func openFeedBackPage() {
-//        let pdfVC = FeedBacKVC()
+//        do {
 //
-////        pdfVC.openedBook = books?.name
-//        pdfVC.navigationItem.largeTitleDisplayMode = .never
-//     //   self.present(pdfVC, animated: true, completion: nil)
-//        navigationController?.pushViewController(pdfVC,animated: true)
+//        try AVAudioSession.sharedInstance().setMode(.default)
+//        try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
 //
-//    }
+//        guard let urlString = urlString else {
+//            return
+//        }
+//
+//        player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+//
+//        guard let player = player else {
+//            return
+//        }
+//
+//
+//        player.play()
+//
+//       }
+//            catch {
+//          print("someting went wrong")
+//       }
+//          }
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -303,5 +321,3 @@ class BookCell1: UITableViewCell {
     }
 
 }
-
-

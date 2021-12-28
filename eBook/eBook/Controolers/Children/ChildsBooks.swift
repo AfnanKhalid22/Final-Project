@@ -8,7 +8,22 @@
 import UIKit
 import TransitionButton
 
+
+
 class ChildsBooks: UIViewController {
+    
+    var heyName = "Hey"
+    var greeting = ""
+
+    var helloLbl: UILabel = {
+           var hello =  UILabel()
+           hello.translatesAutoresizingMaskIntoConstraints = false
+           hello.textColor = .black
+           hello.textAlignment = .center
+           hello.font = UIFont(name: "MuktaMahee Light", size: 20)
+        
+           return hello
+       }()
     
     lazy var logoImage: UIImageView = {
         let logo = UIImageView()
@@ -80,6 +95,7 @@ class ChildsBooks: UIViewController {
         
         view.addSubview(label)
         view.addSubview(logoImage)
+        view.addSubview(helloLbl)
         arabicBtn.layer.shadowColor = UIColor.black.cgColor
         arabicBtn.layer.shadowOpacity = 10.0
         arabicBtn.layer.shadowRadius = 10
@@ -107,11 +123,46 @@ class ChildsBooks: UIViewController {
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 25),
             logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             logoImage.heightAnchor.constraint(equalToConstant: 550),
-            logoImage.widthAnchor.constraint(equalToConstant: 550)
+            logoImage.widthAnchor.constraint(equalToConstant: 550),
         
+            
+            helloLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            helloLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            helloLbl.widthAnchor.constraint(equalToConstant: 300),
+            helloLbl.heightAnchor.constraint(equalToConstant: 50)
         ])
         
+        greetingLogic()
+        
     }
+    
+    func greetingLogic() {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let currentHour = calendar.component(.hour, from: date as Date)
+        let hourInt = Int(currentHour.description)!
+
+        if hourInt >= 12 && hourInt <= 16 {
+            greeting = NSLocalizedString("Good AfternoonB", comment: "")
+        }
+        else if hourInt >= 7 && hourInt <= 12 {
+            greeting = NSLocalizedString("Good MorningB", comment: "")
+        }
+        else if hourInt >= 16 && hourInt <= 20 {
+            greeting = NSLocalizedString("Good EveningB", comment: "")
+            
+        }
+        else if hourInt >= 20 && hourInt <= 24 {
+            greeting = NSLocalizedString("Good NightB", comment: "")
+            
+        }
+        else if hourInt >= 0 && hourInt <= 7 {
+            greeting = NSLocalizedString("SleepB", comment: "")
+        }
+
+        helloLbl.text = greeting
+    }
+
     
     @objc func arabicButtonPressed() {
         arabicBtn.startAnimation()

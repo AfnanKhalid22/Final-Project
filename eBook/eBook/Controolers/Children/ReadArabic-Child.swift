@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
      var childBooks: Book?
+    var player2: AVAudioPlayer?
     var oldTabbarFr: CGRect = .zero
      
 
@@ -30,7 +32,7 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
       
         read.translatesAutoresizingMaskIntoConstraints = false
         read.setTitleColor(.black, for: .normal)
-        read.setTitle(" 📖 تصفح الكتاب", for: .normal)
+        read.setImage(UIImage(named: "readBook"), for: .normal)
         read.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         read.layer.borderColor = UIColor.darkGray.cgColor
         read.layer.borderWidth = 3.0
@@ -47,34 +49,18 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
       
         share.translatesAutoresizingMaskIntoConstraints = false
         share.setTitleColor(.black, for: .normal)
-        share.setTitle("🔗 شارك الكتاب", for: .normal)
-        share.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
+        share.setImage(UIImage(named: "headphone"), for: .normal)
+       share.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
         share.layer.borderColor = UIColor.darkGray.cgColor
         share.layer.borderWidth = 3.0
         share.layer.cornerRadius = 20
         share.layer.masksToBounds = true
-        share.addTarget(self, action: #selector(sharePressed), for: .touchUpInside)
+        share.addTarget(self, action: #selector(audioBook2), for: .touchUpInside)
 
        return share
        
    }()
     
-//    let feedBack: UIButton = {
-//       let feedBack = UIButton()
-//      
-//        feedBack.translatesAutoresizingMaskIntoConstraints = false
-//        feedBack.setTitleColor(.black, for: .normal)
-//        feedBack.setTitle(" 🏷 تعليقات حول الكتاب", for: .normal)
-//        feedBack.backgroundColor = UIColor(red: 216/255, green: 198/255, blue: 174/255, alpha: 1)
-//        feedBack.layer.borderColor = UIColor.darkGray.cgColor
-//        feedBack.layer.borderWidth = 3.0
-//        feedBack.layer.cornerRadius = 20
-//        feedBack.layer.masksToBounds = true
-//        feedBack.addTarget(self, action: #selector(sharePressed), for: .touchUpInside)
-//
-//       return feedBack
-//       
-//   }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,7 +68,7 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
         view.addSubview(tableView1)
         view.addSubview(openBook)
         view.addSubview(shareBook)
-     //   view.addSubview(feedBack)
+   
         view.backgroundColor = UIColor(named: "Color")
         
         NSLayoutConstraint.activate([
@@ -95,21 +81,16 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
             tableView1.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView1.leftAnchor.constraint(equalTo: view.leftAnchor),
             
-            openBook.widthAnchor.constraint(equalToConstant: 150),
-            openBook.heightAnchor.constraint(equalToConstant: 70),
-            openBook.bottomAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -130),
-            openBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 80),
+            openBook.widthAnchor.constraint(equalToConstant: 100),
+            openBook.heightAnchor.constraint(equalToConstant: 100),
+            openBook.bottomAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -100),
+            openBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 70),
 
-            shareBook.widthAnchor.constraint(equalToConstant: 150),
-            shareBook.heightAnchor.constraint(equalToConstant: 70),
+            shareBook.widthAnchor.constraint(equalToConstant: 100),
+            shareBook.heightAnchor.constraint(equalToConstant: 100),
             shareBook.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -200),
-            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
+            shareBook.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -70),
             
-//            feedBack.widthAnchor.constraint(equalToConstant: 200),
-//            feedBack.heightAnchor.constraint(equalToConstant: 70),
-//            feedBack.topAnchor.constraint(equalTo: tableView1.bottomAnchor,constant: -120),
-//            feedBack.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-
         ])
         
     }
@@ -155,12 +136,22 @@ class ReadArabicChild: UIViewController, UITableViewDelegate, UITableViewDataSou
         navigationController?.pushViewController(pdfVC,animated: true)
    }
     
-           //share
-          @objc func sharePressed (_ sender: Any) {
-              let shareBook = UIActivityViewController(activityItems: [self.childBooks?.name ?? ""], applicationActivities: nil)
-              shareBook.popoverPresentationController?.sourceView = self.view
-            self.present(shareBook, animated: true, completion: nil)
-          }
+    
+    @objc func audioBook2 (_ sender: Any) {
+        let audioVC = AudioBookVC(audioBook:
+                                    Book(image: childBooks?.image ?? "",
+                                    name: childBooks?.name ?? "",
+                                    by: childBooks?.by ?? "",
+                                    category: childBooks?.category ?? "" ,
+                                    BooksInfo:
+                                    [BookInformation(
+                                    bookImage: "",
+                                    bookName: "",
+                                    auther: "",
+                                    pageNumber: "")]))
+
+        present(audioVC, animated: true, completion: nil)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

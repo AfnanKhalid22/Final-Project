@@ -6,12 +6,26 @@
 //
 
 import UIKit
-import Lottie
+import FirebaseFirestore
+import FirebaseAuth
 import TransitionButton
 
 
 class HomeVC: UIViewController {
-    
+
+    var heyName: User?
+    var greeting = ""
+
+    var helloLbl: UILabel = {
+           var hello =  UILabel()
+           hello.translatesAutoresizingMaskIntoConstraints = false
+           hello.textColor = .black
+           hello.textAlignment = .center
+           hello.font = UIFont(name: "MuktaMahee Light", size: 21)
+        
+           return hello
+       }()
+
     
     lazy var logoImage: UIImageView = {
         let logo = UIImageView()
@@ -82,10 +96,11 @@ class HomeVC: UIViewController {
         view.addSubview(englishBtn)
         view.addSubview(label)
         view.addSubview(logoImage)
-        arabicBtn.layer.shadowColor = UIColor.black.cgColor
-        arabicBtn.layer.shadowOpacity = 10.0
-        arabicBtn.layer.shadowRadius = 10
-        arabicBtn.layer.shadowOffset = CGSize(width: 5, height: 5)
+        view.addSubview(helloLbl)
+//        arabicBtn.layer.shadowColor = UIColor.black.cgColor
+//        arabicBtn.layer.shadowOpacity = 10.0
+//        arabicBtn.layer.shadowRadius = 10
+//        arabicBtn.layer.shadowOffset = CGSize(width: 5, height: 5)
         
         NSLayoutConstraint.activate([
             arabicBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: 95),
@@ -98,21 +113,54 @@ class HomeVC: UIViewController {
             englishBtn.self.widthAnchor.constraint(equalToConstant: 170),
             englishBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
             
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 290),
+            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
             label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225),
             label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -50),
             label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50),
             
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
             logoImage.heightAnchor.constraint(equalToConstant: 300),
-            logoImage.widthAnchor.constraint(equalToConstant: 300)
+            logoImage.widthAnchor.constraint(equalToConstant: 300),
         
-        
+            helloLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            helloLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            helloLbl.widthAnchor.constraint(equalToConstant: 320),
+            helloLbl.heightAnchor.constraint(equalToConstant: 50)
         ])
+    
+        greetingLogic()
     }
     
-    
+    func greetingLogic() {
+        let date = NSDate()
+        let calendar = NSCalendar.current
+        let currentHour = calendar.component(.hour, from: date as Date)
+        let hourInt = Int(currentHour.description)!
+
+        if hourInt >= 12 && hourInt <= 16 {
+            greeting = NSLocalizedString("Good Afternoon", comment: "")
+        }
+        else if hourInt >= 7 && hourInt <= 12 {
+            greeting = NSLocalizedString("Good Morning", comment: "")
+        }
+        else if hourInt >= 16 && hourInt <= 20 {
+            greeting = NSLocalizedString("Good Evening", comment: "")
+            
+        }
+        else if hourInt >= 20 && hourInt <= 24 {
+            greeting = NSLocalizedString("Good Night", comment: "")
+            
+        }
+        else if hourInt >= 0 && hourInt <= 7 {
+            greeting = NSLocalizedString("Sleep", comment: "")
+        }
+        
+        helloLbl.text = greeting
+
+    }
+
+
     
     @objc func arabicButtonPressed() {
         arabicBtn.startAnimation()
@@ -139,9 +187,6 @@ class HomeVC: UIViewController {
                 }
             }
         }
-//        let englishPage = EnglishVC()
-//        englishPage.navigationItem.largeTitleDisplayMode = .never
-//           navigationController?.pushViewController(englishPage,animated: true)
 
         
     }

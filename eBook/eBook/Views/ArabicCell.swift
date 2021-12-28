@@ -77,14 +77,14 @@ class ArabicCell: UICollectionViewCell {
     
     @objc func addfavoriteBook() {
         print("hi")
-//        if isActive {
-//            isActive = false
-//            favButton.setImage(UIImage(named: "heart1"), for: .normal)
-//        } else {
-//
-//               isActive = true
-//                favButton.setImage(UIImage(named: "heart2"), for: .normal)
-//        }
+        if isActive {
+            isActive = false
+            favButton.setImage(UIImage(named: "heart1"), for: .normal)
+        } else {
+
+               isActive = true
+                favButton.setImage(UIImage(named: "heart2"), for: .normal)
+        }
         
         let bookname = nameLabel.text ?? ""
         _ = bookImage.image ?? UIImage(systemName: "house")
@@ -95,20 +95,20 @@ class ArabicCell: UICollectionViewCell {
         return book?.name.contains(bookname) ?? false
     }
     
-    func setCell(book: Book) {
+     func setCell(book: Book) {
         
-        bookImage.image = UIImage(named: book.image)
-        nameLabel.text = book.name
-        autherLabel.text = book.by
-        categoryLabel.text = book.category
-        self.book = book
-        
-        let isBookFavorite = checkFavoriteBook(bookname: book.name)
-        if isBookFavorite {
-            favButton.setImage(UIImage(named: "heart2"), for: .normal)
-        }else {
-            favButton.setImage(UIImage(named: "heart1"), for: .normal)
-        }
+         bookImage.image = UIImage(named: book.image)
+         nameLabel.text = book.name
+         autherLabel.text = book.by
+         categoryLabel.text = book.category
+              self.book = book
+//
+//        let isBookFavorite = checkFavoriteBook(bookname: book.name)
+//        if isBookFavorite {
+//            favButton.setImage(UIImage(named: "heart2"), for: .normal)
+//        }else {
+//            favButton.setImage(UIImage(named: "heart1"), for: .normal)
+//        }
     }
     
     override init(frame: CGRect) {

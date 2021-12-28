@@ -32,21 +32,24 @@ struct Fav {
 
 
 var bookList = [
+    Book(image: "0", name: "جدد نفسك", by: "الكاتب: ستيف تشاندلر", category: "تطوير الذات",
+         BooksInfo:[
+            BookInformation(bookImage: "0", bookName: "جدد نفسك، كيف تصبح الشخص اللذي طالما أردت أن تكون",auther: " الكاتب : ستيف تشاندلر",pageNumber: "عدد الصفحات : 320")]),
     Book(image: "1", name: "كن بخير", by: "الكاتب: عائشة العمران", category: "ثقافة عامة",
          BooksInfo:[
             BookInformation(bookImage: "1", bookName: "كن بخير",auther: " الكاتب : عائشة العمران",pageNumber: "عدد الصفحات : 144")]),
     Book(image: "2", name: "الرجال من المريخ", by: "الكاتب: جون غراي", category: "العلاقات الأسرية",
          BooksInfo:[
             BookInformation(bookImage: "2", bookName: "الرجال من المريخ و النساء من الزهرة",auther: " الكاتب : جون غراي", pageNumber: "عدد الصفحات : 188")]),
-    Book(image: "3", name: " نظرية الفستق", by: "الكاتب: فهد الأحمدي", category: "التنمية البشرية",
+    Book(image: "3", name: "نظرية الفستق", by: "الكاتب: فهد الأحمدي", category: "التنمية البشرية",
          BooksInfo:[
-            BookInformation(bookImage: "3", bookName: " نظرية الفستق",auther: " الكاتب : فهد الأحمدي", pageNumber: "عدد الصفحات : 256")]),
+            BookInformation(bookImage: "3", bookName: "نظرية الفستق",auther: " الكاتب : فهد الأحمدي", pageNumber: "عدد الصفحات : 256")]),
     Book(image: "4", name: "مت فارغاً", by: "الكاتب: تود هنري", category: "التنمية البشرية",
          BooksInfo:[
             BookInformation(bookImage: "4", bookName: "مت فارغاً",auther: " الكاتب : تود هنري", pageNumber: "عدد الصفحات : 338")]),
-    Book(image: "5", name: " لأنك الله", by: "الكاتب: علي الفيفي", category: "علوم إسلامية",
+    Book(image: "5", name: "لأنك الله", by: "الكاتب: علي الفيفي", category: "علوم إسلامية",
          BooksInfo:[
-            BookInformation(bookImage: "5", bookName: " لأنك الله رحلة إلى السماء السابعة",auther: " الكاتب : علي الفيفي", pageNumber: "عدد الصفحات : 192")]),
+            BookInformation(bookImage: "5", bookName: "لأنك الله رحلة إلى السماء السابعة",auther: " الكاتب : علي الفيفي", pageNumber: "عدد الصفحات : 192")]),
     Book(image: "6", name: "فن اللامبالاة", by: "الكاتب: مارك مانسون", category: "التنمية البشرية",
          BooksInfo:[
             BookInformation(bookImage: "6", bookName: "فن اللامبالاة",auther: " الكاتب : مارك مانسون", pageNumber: "عدد الصفحات : 272")]),

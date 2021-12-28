@@ -12,6 +12,7 @@ import FirebaseAuth
 class TabVC: UITabBarController {
     
     
+   
     fileprivate func createNavController(for rootViewController: UIViewController,
                          title: String,
                          image: UIImage) -> UIViewController {
@@ -37,17 +38,24 @@ class TabVC: UITabBarController {
         tabBar.layer.masksToBounds = true
         tabBar.unselectedItemTintColor = .black
         tabBar.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+    
         
         
         
         viewControllers = [
-            createNavController(for: HomeVC() , title: NSLocalizedString("home", comment: ""),image: UIImage(named: "adultsBook")!),
-            createNavController(for: ChildsBooks() , title: NSLocalizedString("child", comment: ""),image: UIImage(named: "childsBook")!),
-            createNavController(for: FavouriteVC(), title: NSLocalizedString("favourite", comment: ""),image: UIImage(named: "likeBook")!),
-            createNavController(for: ProfileVC(), title: NSLocalizedString("profile", comment: ""),image: UIImage(named: "profile")!),
+            createNavController(for: HomeVC() , title: NSLocalizedString("home", comment: ""),image: UIImage(systemName: "book")!),
+                //named: "adultsBook")!),
+            createNavController(for: ChildsBooks() , title: NSLocalizedString("child", comment: ""),image: UIImage(systemName: "magazine")!),
+                //named: "childsBook")!),
+            createNavController(for: FavouriteVC(), title: NSLocalizedString("favourite", comment: ""),image: UIImage(systemName: "suit.heart.fill")!),
+                //named: "likeBook")!),
+            createNavController(for: ProfileVC(), title: NSLocalizedString("profile", comment: ""),image: UIImage(systemName: "person.fill.viewfinder")!),
+                //named: "profile")!),
     
      
            
         ]
     }
 }
+
+

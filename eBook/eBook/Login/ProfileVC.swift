@@ -266,5 +266,5 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     private func setupGradientView3() {
         let _ = GradientView(self)
     }
-}
+}  
 

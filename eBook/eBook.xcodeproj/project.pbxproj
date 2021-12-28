@@ -43,15 +43,20 @@
 		682614E5275373540082A98A /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738D1274E258900D03E05 /* Data.swift */; };
 		682614E82753DD9A0082A98A /* الرجال من المريخ.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614E72753DD9A0082A98A /* الرجال من المريخ.pdf */; };
 		682614EA2753DDA60082A98A /* مت فارغاً.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614E92753DDA60082A98A /* مت فارغاً.pdf */; };
-		682614EE2753DDBB0082A98A /*  لأنك الله.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614ED2753DDBB0082A98A /*  لأنك الله.pdf */; };
+		682614EE2753DDBB0082A98A /* لأنك الله.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614ED2753DDBB0082A98A /* لأنك الله.pdf */; };
 		682614F02753DDC50082A98A /* فن اللامبالاة.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614EF2753DDC40082A98A /* فن اللامبالاة.pdf */; };
-		682614F42753DDD70082A98A /*  نظرية الفستق.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614F32753DDD70082A98A /*  نظرية الفستق.pdf */; };
+		682614F42753DDD70082A98A /* نظرية الفستق.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614F32753DDD70082A98A /* نظرية الفستق.pdf */; };
 		682614F62753DDE90082A98A /* زحمة حكي.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614F52753DDE90082A98A /* زحمة حكي.pdf */; };
 		682614F82753DDF00082A98A /* أسباب للبقاء حياً.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614F72753DDF00082A98A /* أسباب للبقاء حياً.pdf */; };
 		682614FE2754B07B0082A98A /* It Ends with Us.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 682614FD2754B07B0082A98A /* It Ends with Us.pdf */; };
 		682615022754C8CC0082A98A /* FavoriteServiceArabic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 682615012754C8CC0082A98A /* FavoriteServiceArabic.swift */; };
+		683C9DD8276CADE900B8AFDD /* audioBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 683C9DD7276CADE900B8AFDD /* audioBook.swift */; };
+		683C9DDB276CB70300B8AFDD /* كن بخير.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 683C9DDA276CB70300B8AFDD /* كن بخير.mp3 */; };
 		684522C4275173C100035690 /* كن بخير.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 684522C3275173C100035690 /* كن بخير.pdf */; };
 		684522C627518D1600035690 /* pdfBook1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 684522C527518D1600035690 /* pdfBook1.swift */; };
+		68A2FE95277A5D0600083664 /* جدد نفسك.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 68A2FE94277A5D0600083664 /* جدد نفسك.pdf */; };
+		68A2FE97277A5D3500083664 /* جدد نفسك.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68A2FE96277A5D3500083664 /* جدد نفسك.mp3 */; };
+		68A2FE99277A5D3A00083664 /* لأنك الله.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68A2FE98277A5D3A00083664 /* لأنك الله.mp3 */; };
 		68A7389F274CFCE600D03E05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A7389E274CFCE600D03E05 /* AppDelegate.swift */; };
 		68A738A1274CFCE600D03E05 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738A0274CFCE600D03E05 /* SceneDelegate.swift */; };
 		68A738A8274CFCE800D03E05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68A738A7274CFCE800D03E05 /* Assets.xcassets */; };
@@ -71,6 +76,9 @@
 		68A738D0274E228100D03E05 /* EnglishCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738CF274E228100D03E05 /* EnglishCell.swift */; };
 		68A738D4274EBDA400D03E05 /* ReadArabicBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738D3274EBDA400D03E05 /* ReadArabicBook.swift */; };
 		68A738D6274FB1B200D03E05 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A738D5274FB1B200D03E05 /* FavouriteCell.swift */; };
+		68DA4DFD27769F800050D69B /* البيت الجديد.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68DA4DFC27769F800050D69B /* البيت الجديد.mp3 */; };
+		68DA4DFF2776A4C70050D69B /* الملك عجيب.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68DA4DFE2776A4C60050D69B /* الملك عجيب.mp3 */; };
+		68DA4E012776B4AE0050D69B /* نظرية الفستق.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 68DA4E002776B4AE0050D69B /* نظرية الفستق.mp3 */; };
 		69B5155E90D11DCC32C0DE49 /* Pods_eBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E75592DE8B0976F85F9DE3 /* Pods_eBook.framework */; };
 /* End PBXBuildFile section */
 
@@ -115,15 +123,20 @@
 		682614D827525EE50082A98A /* ReadEnglishBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEnglishBook.swift; sourceTree = "<group>"; };
 		682614E72753DD9A0082A98A /* الرجال من المريخ.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "الرجال من المريخ.pdf"; sourceTree = "<group>"; };
 		682614E92753DDA60082A98A /* مت فارغاً.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "مت فارغاً.pdf"; sourceTree = "<group>"; };
-		682614ED2753DDBB0082A98A /*  لأنك الله.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " لأنك الله.pdf"; sourceTree = "<group>"; };
+		682614ED2753DDBB0082A98A /* لأنك الله.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "لأنك الله.pdf"; sourceTree = "<group>"; };
 		682614EF2753DDC40082A98A /* فن اللامبالاة.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "فن اللامبالاة.pdf"; sourceTree = "<group>"; };
-		682614F32753DDD70082A98A /*  نظرية الفستق.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = " نظرية الفستق.pdf"; sourceTree = "<group>"; };
+		682614F32753DDD70082A98A /* نظرية الفستق.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "نظرية الفستق.pdf"; sourceTree = "<group>"; };
 		682614F52753DDE90082A98A /* زحمة حكي.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "زحمة حكي.pdf"; sourceTree = "<group>"; };
 		682614F72753DDF00082A98A /* أسباب للبقاء حياً.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "أسباب للبقاء حياً.pdf"; sourceTree = "<group>"; };
 		682614FD2754B07B0082A98A /* It Ends with Us.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "It Ends with Us.pdf"; sourceTree = "<group>"; };
 		682615012754C8CC0082A98A /* FavoriteServiceArabic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteServiceArabic.swift; sourceTree = "<group>"; };
+		683C9DD7276CADE900B8AFDD /* audioBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = audioBook.swift; sourceTree = "<group>"; };
+		683C9DDA276CB70300B8AFDD /* كن بخير.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "كن بخير.mp3"; sourceTree = "<group>"; };
 		684522C3275173C100035690 /* كن بخير.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "كن بخير.pdf"; sourceTree = "<group>"; };
 		684522C527518D1600035690 /* pdfBook1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pdfBook1.swift; sourceTree = "<group>"; };
+		68A2FE94277A5D0600083664 /* جدد نفسك.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "جدد نفسك.pdf"; sourceTree = "<group>"; };
+		68A2FE96277A5D3500083664 /* جدد نفسك.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "جدد نفسك.mp3"; sourceTree = "<group>"; };
+		68A2FE98277A5D3A00083664 /* لأنك الله.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "لأنك الله.mp3"; sourceTree = "<group>"; };
 		68A7389B274CFCE600D03E05 /* eBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A7389E274CFCE600D03E05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68A738A0274CFCE600D03E05 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +159,9 @@
 		68A738D1274E258900D03E05 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		68A738D3274EBDA400D03E05 /* ReadArabicBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadArabicBook.swift; sourceTree = "<group>"; };
 		68A738D5274FB1B200D03E05 /* FavouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
+		68DA4DFC27769F800050D69B /* البيت الجديد.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "البيت الجديد.mp3"; sourceTree = "<group>"; };
+		68DA4DFE2776A4C60050D69B /* الملك عجيب.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "الملك عجيب.mp3"; sourceTree = "<group>"; };
+		68DA4E002776B4AE0050D69B /* نظرية الفستق.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "نظرية الفستق.mp3"; sourceTree = "<group>"; };
 		70E75592DE8B0976F85F9DE3 /* Pods_eBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -174,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				684522C527518D1600035690 /* pdfBook1.swift */,
+				683C9DD7276CADE900B8AFDD /* audioBook.swift */,
 			);
 			name = PDFControolers;
 			path = Controolers/PDFControolers;
@@ -191,6 +208,19 @@
 			path = Children;
 			sourceTree = "<group>";
 		};
+		683C9DD9276CAF3F00B8AFDD /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				68A2FE96277A5D3500083664 /* جدد نفسك.mp3 */,
+				683C9DDA276CB70300B8AFDD /* كن بخير.mp3 */,
+				68DA4E002776B4AE0050D69B /* نظرية الفستق.mp3 */,
+				68A2FE98277A5D3A00083664 /* لأنك الله.mp3 */,
+				68DA4DFC27769F800050D69B /* البيت الجديد.mp3 */,
+				68DA4DFE2776A4C60050D69B /* الملك عجيب.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
 		68402FA72768BCE300854040 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,11 +236,12 @@
 		684522C22751739800035690 /* Pdf */ = {
 			isa = PBXGroup;
 			children = (
+				68A2FE94277A5D0600083664 /* جدد نفسك.pdf */,
 				684522C3275173C100035690 /* كن بخير.pdf */,
 				682614E72753DD9A0082A98A /* الرجال من المريخ.pdf */,
-				682614F32753DDD70082A98A /*  نظرية الفستق.pdf */,
+				682614F32753DDD70082A98A /* نظرية الفستق.pdf */,
 				682614E92753DDA60082A98A /* مت فارغاً.pdf */,
-				682614ED2753DDBB0082A98A /*  لأنك الله.pdf */,
+				682614ED2753DDBB0082A98A /* لأنك الله.pdf */,
 				682614EF2753DDC40082A98A /* فن اللامبالاة.pdf */,
 				6813C5B92756723B00D5FAFC /* أربعون 40.pdf */,
 				682614F52753DDE90082A98A /* زحمة حكي.pdf */,
@@ -269,6 +300,7 @@
 				68A738A0274CFCE600D03E05 /* SceneDelegate.swift */,
 				68A738BD274D4ECC00D03E05 /* GradientView.swift */,
 				684522C22751739800035690 /* Pdf */,
+				683C9DD9276CAF3F00B8AFDD /* Audio */,
 				68A738BA274D04B700D03E05 /* Services */,
 				6813C5BE2757F0D900D5FAFC /* PDFControolers */,
 				68A738BB274D088F00D03E05 /* Models */,
@@ -398,7 +430,9 @@
 				6813C60B275EAD9600D5FAFC /* لؤلؤة الصباح.pdf in Resources */,
 				6813C617275EB17300D5FAFC /* Stars and Planets.pdf in Resources */,
 				6813C60D275EB13000D5FAFC /* ذاهب لأطمئن على صديقي.pdf in Resources */,
+				68DA4E012776B4AE0050D69B /* نظرية الفستق.mp3 in Resources */,
 				68A738AB274CFCE800D03E05 /* LaunchScreen.storyboard in Resources */,
+				683C9DDB276CB70300B8AFDD /* كن بخير.mp3 in Resources */,
 				6813C607275EAD8100D5FAFC /* النحلة العاملة.pdf in Resources */,
 				6813C5C8275D258800D5FAFC /* Localizable.strings in Resources */,
 				6813C5B22756642500D5FAFC /* The Power of Habit.pdf in Resources */,
@@ -407,14 +441,18 @@
 				6813C605275EAD7B00D5FAFC /* الملك عجيب.pdf in Resources */,
 				682614EA2753DDA60082A98A /* مت فارغاً.pdf in Resources */,
 				6813C603275EAD2600D5FAFC /* السندباد البحري.pdf in Resources */,
+				68DA4DFD27769F800050D69B /* البيت الجديد.mp3 in Resources */,
 				6813C60F275EB14300D5FAFC /* شيماء تحكي.pdf in Resources */,
 				6813C5C02757F2CD00D5FAFC /* 365 Days.pdf in Resources */,
 				6813C613275EB16500D5FAFC /* Nature Trail.pdf in Resources */,
+				68DA4DFF2776A4C70050D69B /* الملك عجيب.mp3 in Resources */,
 				6813C611275EB15900D5FAFC /* كيف اصبح الفيل فهد.pdf in Resources */,
 				682614FE2754B07B0082A98A /* It Ends with Us.pdf in Resources */,
 				6813C61B275EB24100D5FAFC /* English Grammar.pdf in Resources */,
+				68A2FE97277A5D3500083664 /* جدد نفسك.mp3 in Resources */,
 				682614F82753DDF00082A98A /* أسباب للبقاء حياً.pdf in Resources */,
 				684522C4275173C100035690 /* كن بخير.pdf in Resources */,
+				68A2FE99277A5D3A00083664 /* لأنك الله.mp3 in Resources */,
 				6813C5AE27561AFD00D5FAFC /* The Power of Now .pdf in Resources */,
 				6813C5B82756714C00D5FAFC /* The Question Book.pdf in Resources */,
 				6813C5C22757F49500D5FAFC /* Think Again.pdf in Resources */,
@@ -425,10 +463,11 @@
 				68A738A8274CFCE800D03E05 /* Assets.xcassets in Resources */,
 				682614F02753DDC50082A98A /* فن اللامبالاة.pdf in Resources */,
 				68A738B9274D01E900D03E05 /* GoogleService-Info.plist in Resources */,
-				682614EE2753DDBB0082A98A /*  لأنك الله.pdf in Resources */,
+				682614EE2753DDBB0082A98A /* لأنك الله.pdf in Resources */,
 				682614E82753DD9A0082A98A /* الرجال من المريخ.pdf in Resources */,
+				68A2FE95277A5D0600083664 /* جدد نفسك.pdf in Resources */,
 				6813C5B02756586900D5FAFC /* Finish What You Start.pdf in Resources */,
-				682614F42753DDD70082A98A /*  نظرية الفستق.pdf in Resources */,
+				682614F42753DDD70082A98A /* نظرية الفستق.pdf in Resources */,
 				6813C5AC275614D700D5FAFC /* الدحيح.pdf in Resources */,
 				6813C615275EB16B00D5FAFC /* Picture Books.pdf in Resources */,
 			);
@@ -510,6 +549,7 @@
 				6813C5F1275E32A800D5FAFC /* ChildACell.swift in Sources */,
 				68A738C0274D548000D03E05 /* User.swift in Sources */,
 				684522C627518D1600035690 /* pdfBook1.swift in Sources */,
+				683C9DD8276CADE900B8AFDD /* audioBook.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +704,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8U2GBY9XAF;
+				DEVELOPMENT_TEAM = K682XBW6VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -692,7 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8U2GBY9XAF;
+				DEVELOPMENT_TEAM = K682XBW6VY;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = eBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
