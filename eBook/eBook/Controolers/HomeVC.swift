@@ -21,11 +21,21 @@ class HomeVC: UIViewController {
            hello.translatesAutoresizingMaskIntoConstraints = false
            hello.textColor = .black
            hello.textAlignment = .center
-           hello.font = UIFont(name: "MuktaMahee Light", size: 21)
+           hello.font = UIFont(name: "Hoefler Text Italic", size: 28)
         
            return hello
        }()
-
+    
+    var nameLbl: UILabel = {
+           var name =  UILabel()
+             name.translatesAutoresizingMaskIntoConstraints = false
+             name.textColor = .black
+             name.textAlignment = .center
+             name.font = UIFont(name: "Hoefler Text Italic", size: 28)
+        
+              return name
+       }()
+  //  MuktaMahee Light
     
     lazy var logoImage: UIImageView = {
         let logo = UIImageView()
@@ -130,9 +140,23 @@ class HomeVC: UIViewController {
         ])
     
         greetingLogic()
+        
+        guard let currentUserID = Auth.auth().currentUser?.uid else {return}
+        Firestore.firestore()
+            .document("users/\(currentUserID)")
+            .addSnapshotListener{ doucument, error in
+                if error != nil {
+                    print (error as Any)
+                    return
+                }
+                self.heyName?.name = doucument?.data()?["name"] as? String ?? ""
+               
+
+            }
     }
     
     func greetingLogic() {
+        
         let date = NSDate()
         let calendar = NSCalendar.current
         let currentHour = calendar.component(.hour, from: date as Date)
@@ -156,7 +180,7 @@ class HomeVC: UIViewController {
             greeting = NSLocalizedString("Sleep", comment: "")
         }
         
-        helloLbl.text = greeting
+          helloLbl.text = greeting //+ ", " + nameTF.text!.capitalized + "!"
 
     }
 
@@ -183,12 +207,10 @@ class HomeVC: UIViewController {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                         let englishPage = EnglishVC()
                     englishPage.navigationItem.largeTitleDisplayMode = .never
-        self.navigationController?.pushViewController(englishPage,animated: true)
+             self.navigationController?.pushViewController(englishPage,animated: true)
                 }
             }
         }
-
-        
     }
     
     private func setupGradientView2() {

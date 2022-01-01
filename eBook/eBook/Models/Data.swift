@@ -32,6 +32,9 @@ struct Fav {
 
 
 var bookList = [
+    Book(image: "3", name: "نظرية الفستق", by: "الكاتب: فهد الأحمدي", category: "التنمية البشرية",
+         BooksInfo:[
+            BookInformation(bookImage: "3", bookName: "نظرية الفستق",auther: " الكاتب : فهد الأحمدي", pageNumber: "عدد الصفحات : 256")]),
     Book(image: "0", name: "جدد نفسك", by: "الكاتب: ستيف تشاندلر", category: "تطوير الذات",
          BooksInfo:[
             BookInformation(bookImage: "0", bookName: "جدد نفسك، كيف تصبح الشخص اللذي طالما أردت أن تكون",auther: " الكاتب : ستيف تشاندلر",pageNumber: "عدد الصفحات : 320")]),
@@ -41,9 +44,6 @@ var bookList = [
     Book(image: "2", name: "الرجال من المريخ", by: "الكاتب: جون غراي", category: "العلاقات الأسرية",
          BooksInfo:[
             BookInformation(bookImage: "2", bookName: "الرجال من المريخ و النساء من الزهرة",auther: " الكاتب : جون غراي", pageNumber: "عدد الصفحات : 188")]),
-    Book(image: "3", name: "نظرية الفستق", by: "الكاتب: فهد الأحمدي", category: "التنمية البشرية",
-         BooksInfo:[
-            BookInformation(bookImage: "3", bookName: "نظرية الفستق",auther: " الكاتب : فهد الأحمدي", pageNumber: "عدد الصفحات : 256")]),
     Book(image: "4", name: "مت فارغاً", by: "الكاتب: تود هنري", category: "التنمية البشرية",
          BooksInfo:[
             BookInformation(bookImage: "4", bookName: "مت فارغاً",auther: " الكاتب : تود هنري", pageNumber: "عدد الصفحات : 338")]),

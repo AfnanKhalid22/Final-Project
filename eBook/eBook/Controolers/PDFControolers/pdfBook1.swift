@@ -8,11 +8,15 @@
 import UIKit
 import PDFKit
 
+
+var bookmarkDict: [String: Int] = [:]
+
 class pdfBook: UIViewController, PDFViewDelegate {
     
     var oldTabbarFr: CGRect = .zero
     var openedBook: String?
     var isSave: Bool = false
+    
     
     //pdf View
     private var pdfView: PDFView?
@@ -26,7 +30,7 @@ class pdfBook: UIViewController, PDFViewDelegate {
         super.viewDidLoad()
         
         
-       // add pdfView to viewController
+        // add pdfView to viewController
         pdfView = PDFView(frame: self.view.bounds)
         self.view.addSubview(pdfView!)
         
@@ -37,12 +41,14 @@ class pdfBook: UIViewController, PDFViewDelegate {
         pdfView?.displayMode = .singlePage
         pdfView?.displayDirection = .horizontal
         pdfView?.usePageViewController(true)
+    
+        
         
         
         // pdf path, place pdf file:
         
         print("This is sth:", openedBook ?? "")
-
+        
         guard let path = Bundle.main.url(forResource: openedBook ?? "" , withExtension: "pdf") else {
             print("unable to locate file")
             
@@ -53,7 +59,6 @@ class pdfBook: UIViewController, PDFViewDelegate {
         pdfDocument = PDFDocument(url: path)
         pdfView!.document = pdfDocument
         
-        
         //get totalnumber of pages in pdf
         if let total = pdfView?.document?.pageCount {
             totalPageCount = total
@@ -63,8 +68,23 @@ class pdfBook: UIViewController, PDFViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(handlePageChange), name: Notification.Name.PDFViewPageChanged, object: nil)
         
         oldTabbarFr = self.tabBarController?.tabBar.frame ?? .zero
-           
+        
+        if let openedBook = openedBook,
+           let lastBookmarkPageNumber = bookmarkDict[openedBook],
+           let bookMarkedPage = pdfDocument?.page(at: lastBookmarkPageNumber - 1) {
+                pdfView?.go(to: bookMarkedPage)
+            }
     }
+    //    func newfunc() {
+    //    // Adding an annotation.
+    //    let squareAnnotation = PDFAnnotation(bounds: CGRect(x: 200, y: 100, width: 100, height: 100), forType: PDFAnnotationSubtype.square, withProperties: nil)
+    //    squareAnnotation.color = UIColor.blue
+    //        let page = pdfDocument?.page(at: 0)!
+    //        page?.addAnnotation(squareAnnotation)
+    //
+    //    // Writing the changes to the file.
+    //        pdfDocument?.write(toFile: self.openedBook ?? "")
+    //    }
     
     @objc func handlePageChange() {
         
@@ -74,50 +94,55 @@ class pdfBook: UIViewController, PDFViewDelegate {
         
         // cahnge Title
         title = " [\(pageTotalAndCurrentNumber)]"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action: #selector(savePageNumber))
+        updateBookmarkIcon()
+    }
+    
+    func updateBookmarkIcon() {
+        guard
+            let openedBook = openedBook else {
+                return
+            }
+        
+        
+        let currentPageNum = pdfDocument!.index(for: (pdfView?.currentPage)!) + 1
+        let lastBookmarkPageNumber = bookmarkDict[openedBook]
+        
+        if currentPageNum == lastBookmarkPageNumber {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .done, target: self, action: #selector(savePageNumber))
+        } else {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action:  #selector(savePageNumber))
+        }
     }
     
     @objc func savePageNumber() {
-        if isSave {
-            isSave = false
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action:  #selector(savePageNumber))
+        guard let openedBook = openedBook else { return }
+        
+        let currentPageNum = pdfDocument!.index(for: (pdfView?.currentPage)!) + 1
+        let lastBookmarkPageNumber = bookmarkDict[openedBook]
+        
+        if currentPageNum == lastBookmarkPageNumber {
+            bookmarkDict.removeValue(forKey: openedBook)
         } else {
-
-               isSave = true
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .done, target: self, action: #selector(didTap))
+            bookmarkDict[openedBook] = currentPageNum
         }
-//        let bookname = nameLabel.text ?? ""
-//        _ = bookImage.image ?? UIImage(systemName: "house")
-//        FavoriteService.shared.addToFavorite(favBook: Fav(image: book.image, name: bookname))
-        print("save the page")
+        
+        updateBookmarkIcon()
     }
-    
-    @objc func didTap() {
-        if isSave {
-            isSave = true
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark"), style: .done, target: self, action:  #selector(didTap))
-            
-        } else {
 
-               isSave = false
-            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bookmark.fill"), style: .done, target: self, action:  #selector(savePageNumber))
-        }
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
         self.tabBarController?.tabBar.frame = .zero
     }
-
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
         self.tabBarController?.tabBar.frame = oldTabbarFr
     }
     
-  
-        
+    
+    
 }
 

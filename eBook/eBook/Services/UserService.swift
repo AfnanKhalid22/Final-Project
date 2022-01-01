@@ -15,7 +15,6 @@ class UsersService {
     let usersCollection = Firestore.firestore().collection("users")
     
     
-    
     func listenToUsers(completion: @escaping (([User]) -> Void)) {
         
         usersCollection.addSnapshotListener { snapshot, error in
@@ -33,14 +32,16 @@ class UsersService {
                 guard
                     let id = data["id"] as? String,
                     let name = data["name"] as? String,
-                    let email = data["email"] as? String else {
+                    let email = data["email"] as? String,
+                    let image = data["image"] as? String  else {
                         continue
                     }
                     
                 let user = User(
                     id: id,
                     name: name,
-                    email: email
+                    email: email,
+                    image: image
                 )
                 
                 users.append(user)
@@ -55,6 +56,7 @@ class UsersService {
             "id": user.id,
             "name": user.name,
             "email": user.email,
+            "image": user.image,
         ], merge: true)
     }
 }

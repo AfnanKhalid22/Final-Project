@@ -76,7 +76,7 @@ final class AudioBookVC : UIViewController {
 
 }
 
-final class MediaPlayer: UIView{
+final class MediaPlayer: UIView {
     
     var booksAudio: Book
     private var player = AVAudioPlayer()
