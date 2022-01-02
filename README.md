@@ -11,18 +11,20 @@ eBook App
 - User can share his favorite Book with his frinds.
 - User can choose his books favorite list.
 - User can Change the App Language (Arabic & English).
+- User can choose read or listen the book.
 - User can share the App with friends.
 - The application serve adults and children.
 
 # Structure:
-// Add your project screens/models/views/cells
+
 screens:
-- HomeVC.
-- ArabicBookVC.
-- EnglishBookVC.
-- FavoriteVC.
-- profileVC.
+- HomeVC
+- ArabicBookVC
+- EnglishBookVC
+- FavoriteVC
+- profileVC
 - pdfBookVC
+- audioBookVC
 Models:
 - User
 - BookData
@@ -65,6 +67,7 @@ User :
 - see English & Arabic Book List
 - see favourite book list
 - can read Book
+- can listen audio book
 - can signOut
 
 
