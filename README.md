@@ -53,6 +53,9 @@ Cells:
 
 - As a User I want to read adult/children Books , So that I can read books that are suitable for my age.
 
+- As a User I want to add bookMark to book , So that I can complete read the book easily.
+
+- As a User I want to listen audio book , So that I can choose read or listen the book.
 
 # Backlog:
  
