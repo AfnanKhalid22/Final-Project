@@ -82,8 +82,8 @@ User :
 |    firstHomePage    |   user only    | Home page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                      |
 |    firstHomePage    |   user only    | Home page, link to English Books List, navigate to English Books List after pressed on English button.                   |
 |    listBookPage     |   user only    | list Book page, link to Book information, navigate to Book information after pressed on specific Book.                   |
-| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF page after pressed on Read Book Button.                   |
-| informationBookPage |   user only    | information Book page, link to share Book, navigate to default share popup of the iOS after pressed on Share Book Button.|     
+| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF page after pressed on Book icon Button.                   |
+| informationBookPage |   user only    | information Book page, link to listen Book, navigate to audio page after pressed on headphone Button.|     
 |    listBookPage     |   user only    | list Book Page, link to add book to favourite page, after pressed on heart Button.                                       |                
 |  favouriteBookPage  |   user only    | favourite Book Page, link to raed   favourite book, after pressed  on specific Book.                                     |
 |    childrenPage     |   user only    | children page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                |
