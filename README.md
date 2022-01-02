@@ -13,6 +13,7 @@ eBook App
 - User can Change the App Language (Arabic & English).
 - User can choose read or listen the book.
 - User can share the App with friends.
+- User can reset password.
 - The application serve adults and children.
 
 # Structure:
