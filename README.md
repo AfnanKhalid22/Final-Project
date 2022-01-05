@@ -11,18 +11,21 @@ eBook App
 - User can share his favorite Book with his frinds.
 - User can choose his books favorite list.
 - User can Change the App Language (Arabic & English).
+- User can choose read or listen the book.
 - User can share the App with friends.
+- User can reset password.
 - The application serve adults and children.
 
 # Structure:
-// Add your project screens/models/views/cells
+
 screens:
-- HomeVC.
-- ArabicBookVC.
-- EnglishBookVC.
-- FavoriteVC.
-- profileVC.
+- HomeVC
+- ArabicBookVC
+- EnglishBookVC
+- FavoriteVC
+- profileVC
 - pdfBookVC
+- audioBookVC
 Models:
 - User
 - BookData
@@ -53,6 +56,9 @@ Cells:
 
 - As a User I want to read adult/children Books , So that I can read books that are suitable for my age.
 
+- As a User I want to add bookMark to book , So that I can complete read the book easily.
+
+- As a User I want to listen audio book , So that I can choose read or listen the book.
 
 # Backlog:
  
@@ -62,6 +68,7 @@ User :
 - see English & Arabic Book List
 - see favourite book list
 - can read Book
+- can listen audio book
 - can signOut
 
 
@@ -75,16 +82,16 @@ User :
 |    firstHomePage    |   user only    | Home page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                      |
 |    firstHomePage    |   user only    | Home page, link to English Books List, navigate to English Books List after pressed on English button.                   |
 |    listBookPage     |   user only    | list Book page, link to Book information, navigate to Book information after pressed on specific Book.                   |
-| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF page after pressed on Read Book Button.                   |
-| informationBookPage |   user only    | information Book page, link to share Book, navigate to default share popup of the iOS after pressed on Share Book Button.|     
+| informationBookPage |   user only    | information Book page, link to read Book, navigate to Book PDF page after pressed on Book icon Button.                   |
+| informationBookPage |   user only    | information Book page, link to listen Book, navigate to audio page after pressed on headphone Button.|     
 |    listBookPage     |   user only    | list Book Page, link to add book to favourite page, after pressed on heart Button.                                       |                
 |  favouriteBookPage  |   user only    | favourite Book Page, link to raed   favourite book, after pressed  on specific Book.                                     |
-|    cildrenPage      |   user only    | cildren page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                   |
-|    cildrenPage      |   user only    | cildren page, link to English Books List, navigate to English Books List after  pressed on English button.               |
+|    childrenPage     |   user only    | children page, link to Arabic Books List, navigate to Arabic Books List after pressed on Arabic button.                |
+|    childrenPage     |   user only    | children page, link to English Books List, navigate to English Books List after  pressed on English button.               |
 |    profilePage      |   user only    | profile page, link to edit profile image, navigate to iphone library after tap on profile image.                         |
 |    profilePage      |   user only    | profile page, link to edit User name, navigate to edite user name after tap on name field.                               |    
 |    profilePage      |   user only    | profile page, link to change language, navigate to iphone setting after tap on change Language button.                   |
-|    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.    |          
+|    profilePage      |   user only    | profile page, link to share Application, navigate todefault share popup of the iOS after pressed on Share App button.     |          
 |    profilePage      |   user only    | profile page, link to signOut, navigate to login page after pressed on SignOut button.                                   |                               
 
 
