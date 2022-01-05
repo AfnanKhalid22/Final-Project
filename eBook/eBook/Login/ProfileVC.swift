@@ -100,7 +100,12 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGradientView3()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "background")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+   //     setupGradientView3()
+        
         setupConstraint()
         self.name.delegate = self
         self.title = NSLocalizedString("profile", comment: "")
@@ -224,6 +229,7 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
                self.present(activityVC, animated: true, completion: nil)
            }    }
     
+    
    @objc func btnChangeLangauge() {
        
        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
@@ -258,31 +264,31 @@ class ProfileVC : UIViewController, UIImagePickerControllerDelegate,UITextFieldD
         profileImage.addSubview(tapHere)
         
         NSLayoutConstraint.activate([
-            profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            profileImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60),
             profileImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 180),
             profileImage.heightAnchor.constraint(equalToConstant: 200),
             profileImage.widthAnchor.constraint(equalToConstant: 200),
             
+            name.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60),
             name.topAnchor.constraint(equalTo: view.topAnchor,constant: 470),
-            name.leadingAnchor.constraint(equalTo: view.leadingAnchor , constant: 80),
-            name.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             name.heightAnchor.constraint(equalToConstant: 40),
-            name.widthAnchor.constraint(equalToConstant: 290),
+            name.widthAnchor.constraint(equalToConstant: 200),
             
+            changeLanguage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60),
             changeLanguage.topAnchor.constraint(equalTo: view.topAnchor, constant: 540),
-            changeLanguage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            changeLanguage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             changeLanguage.heightAnchor.constraint(equalToConstant: 40),
+            changeLanguage.widthAnchor.constraint(equalToConstant: 200),
             
+            shareApp.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60),
             shareApp.topAnchor.constraint(equalTo: view.topAnchor, constant: 610),
-            shareApp.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            shareApp.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             shareApp.heightAnchor.constraint(equalToConstant: 40),
+            shareApp.widthAnchor.constraint(equalToConstant: 200),
             
+            
+            signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 60),
             signOutButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 680),
-            signOutButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
-            signOutButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
             signOutButton.heightAnchor.constraint(equalToConstant: 40),
+            signOutButton.widthAnchor.constraint(equalToConstant: 200),
             
             tapHere.topAnchor.constraint(equalTo: profileImage.topAnchor, constant: 90),
             tapHere.leftAnchor.constraint(equalTo: profileImage.leftAnchor, constant: 60),

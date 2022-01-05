@@ -13,6 +13,7 @@ class FavoriteService {
 
 
   static let shared = FavoriteService()
+    
   let favoriteCollection = Firestore.firestore().collection("Favorite")
 
 

@@ -19,7 +19,7 @@ class HomeVC: UIViewController {
     var helloLbl: UILabel = {
            var hello =  UILabel()
            hello.translatesAutoresizingMaskIntoConstraints = false
-           hello.textColor = .black
+           hello.textColor = UIColor(named: "textColor")
            hello.textAlignment = .center
            hello.font = UIFont(name: "Hoefler Text Italic", size: 28)
         
@@ -79,6 +79,7 @@ class HomeVC: UIViewController {
     }()
     
     var englishBtn: TransitionButton = {
+
         let btn = TransitionButton()
           btn.translatesAutoresizingMaskIntoConstraints = false
           btn.setTitleColor(.black, for: .normal)
@@ -99,13 +100,18 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupGradientView2()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "firstbackground")
+        backgroundImage.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImage, at: 0)
+        
+      //  setupGradientView2()
         view.backgroundColor = UIColor(named: "Color")//UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         view.addSubview(arabicBtn)
         view.addSubview(englishBtn)
-        view.addSubview(label)
-        view.addSubview(logoImage)
+     //   view.addSubview(label)
+        //view.addSubview(logoImage)
         view.addSubview(helloLbl)
 //        arabicBtn.layer.shadowColor = UIColor.black.cgColor
 //        arabicBtn.layer.shadowOpacity = 10.0
@@ -113,27 +119,27 @@ class HomeVC: UIViewController {
 //        arabicBtn.layer.shadowOffset = CGSize(width: 5, height: 5)
         
         NSLayoutConstraint.activate([
-            arabicBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: 95),
+            arabicBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor,constant: -80),
             arabicBtn.self.heightAnchor.constraint(equalToConstant: 170),
             arabicBtn.self.widthAnchor.constraint(equalToConstant: 170),
-            arabicBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
+            arabicBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
             
-            englishBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -95),
+            englishBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: -80),
             englishBtn.self.heightAnchor.constraint(equalToConstant: 170),
             englishBtn.self.widthAnchor.constraint(equalToConstant: 170),
-            englishBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 550),
+            englishBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 450),
             
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
-            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225),
-            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -50),
-            label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50),
+//            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 330),
+//            label.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -225),
+//            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -50),
+//            label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50),
             
-            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
-            logoImage.heightAnchor.constraint(equalToConstant: 300),
-            logoImage.widthAnchor.constraint(equalToConstant: 300),
-        
-            helloLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            logoImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+//            logoImage.heightAnchor.constraint(equalToConstant: 300),
+//            logoImage.widthAnchor.constraint(equalToConstant: 300),
+//
+         //   helloLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             helloLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
             helloLbl.widthAnchor.constraint(equalToConstant: 320),
             helloLbl.heightAnchor.constraint(equalToConstant: 50)
@@ -183,12 +189,10 @@ class HomeVC: UIViewController {
           helloLbl.text = greeting //+ ", " + nameTF.text!.capitalized + "!"
 
     }
-
-
     
     @objc func arabicButtonPressed() {
         arabicBtn.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0) {
             self.arabicBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                     
@@ -202,9 +206,9 @@ class HomeVC: UIViewController {
     
     @objc func englishButtonPressed() {
         englishBtn.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0) {
             self.englishBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
-                DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
+                DispatchQueue.main.asyncAfter(deadline: .now()+0.0) {
                         let englishPage = EnglishVC()
                     englishPage.navigationItem.largeTitleDisplayMode = .never
              self.navigationController?.pushViewController(englishPage,animated: true)
@@ -213,7 +217,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    private func setupGradientView2() {
-        let _ = GradientView(self)
-    }
+//    private func setupGradientView2() {
+//        let _ = GradientView(self)
+//    }
 }

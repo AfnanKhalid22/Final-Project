@@ -63,6 +63,7 @@ class FavouriteVC : UIViewController, UITableViewDelegate, UITableViewDataSource
         
         cell.nameLabel2.text = a.name
         cell.bookImage2.image = UIImage(named: a.image)
+    
         cell.backgroundColor = UIColor(named: "Color")//UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
         return cell

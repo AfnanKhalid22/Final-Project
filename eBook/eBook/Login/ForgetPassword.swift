@@ -54,6 +54,7 @@ class ForgetPassword: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
         view.backgroundColor = UIColor(named: "Color")
         self.emailTF.delegate = self
         setupGradientView4()
@@ -109,6 +110,7 @@ class ForgetPassword: UIViewController, UITextFieldDelegate {
         })
         
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
            emailTF.resignFirstResponder()
         

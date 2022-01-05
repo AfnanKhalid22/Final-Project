@@ -18,9 +18,9 @@ class ChildsBooks: UIViewController {
     var helloLbl: UILabel = {
            var hello =  UILabel()
            hello.translatesAutoresizingMaskIntoConstraints = false
-           hello.textColor = .black
+           hello.textColor = UIColor(named: "textColor")
            hello.textAlignment = .center
-           hello.font = UIFont(name: "MuktaMahee Light", size: 20)
+           hello.font = UIFont(name: "Hoefler Text Italic", size: 20)
         
            return hello
        }()
@@ -36,19 +36,19 @@ class ChildsBooks: UIViewController {
                 return logo
     }()
     
-    private let label: UILabel = {
-        let label = UILabel()
-          label.translatesAutoresizingMaskIntoConstraints = false
-          label.text = NSLocalizedString("choose", comment: "")
-          label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20.0)
-          label.textColor = .black
-          label.textAlignment = .center
-          label.layer.cornerRadius = 20
-          label.layer.masksToBounds = true
-        
-                return label
-        
-    }()
+//    private let label: UILabel = {
+//        let label = UILabel()
+//          label.translatesAutoresizingMaskIntoConstraints = false
+//          label.text = NSLocalizedString("choose", comment: "")
+//          label.font = UIFont(name: "AppleSDGothicNeo-SemiBold", size: 20.0)
+//          label.textColor = .black
+//          label.textAlignment = .center
+//          label.layer.cornerRadius = 20
+//          label.layer.masksToBounds = true
+//
+//                return label
+//
+//    }()
     
     var arabicBtn: TransitionButton = {
         let btn = TransitionButton()
@@ -90,10 +90,10 @@ class ChildsBooks: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupGradientView2()
+    //    setupGradientView2()
         view.backgroundColor = UIColor(named: "Color")// UIColor(red: 230/255, green: 213/255, blue: 197/255, alpha: 0.5)
         
-        view.addSubview(label)
+    //    view.addSubview(label)
         view.addSubview(logoImage)
         view.addSubview(helloLbl)
         arabicBtn.layer.shadowColor = UIColor.black.cgColor
@@ -114,10 +114,10 @@ class ChildsBooks: UIViewController {
             englishBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 540),
             
             
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -50),
-            label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50),
+//            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+//            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -50),
+//            label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 50),
             
             
             logoImage.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 25),
@@ -127,7 +127,7 @@ class ChildsBooks: UIViewController {
         
             
             helloLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            helloLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
+            helloLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 90),
             helloLbl.widthAnchor.constraint(equalToConstant: 300),
             helloLbl.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -166,7 +166,7 @@ class ChildsBooks: UIViewController {
     
     @objc func arabicButtonPressed() {
         arabicBtn.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0) {
             self.arabicBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                    let arabicChildPage = ChildArabic()
@@ -181,7 +181,7 @@ class ChildsBooks: UIViewController {
 
     @objc func  englishButtonPressed() {
         englishBtn.startAnimation()
-        DispatchQueue.main.asyncAfter(deadline: .now()+1) {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0) {
             self.englishBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 0 ) {
                 DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                         let englishChildPage = ChildEnglish()
@@ -192,8 +192,8 @@ class ChildsBooks: UIViewController {
         }
     }
     
-    private func setupGradientView2() {
-        let _ = GradientView(self)
-    }
+//    private func setupGradientView2() {
+//        let _ = GradientView(self)
+//    }
 }
 

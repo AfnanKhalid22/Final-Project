@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if isUserLoggedIn {
           viewController = TabVC()
         } else {
-          viewController = LoginVC()
+          viewController = WelcomePageVC()
         }
     
         let navigation = UINavigationController(rootViewController: viewController)
